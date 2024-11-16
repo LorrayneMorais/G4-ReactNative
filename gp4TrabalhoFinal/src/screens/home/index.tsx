@@ -4,7 +4,7 @@ import { styles } from "./styles";
 import backgroundImag from "../../../assets/background.png";
 import iconEat from '../../../assets/eat.png'
 import iconWater from '../../../assets/water.png'
-import calendarIcon from '.../../../assets/calendario.png'
+import calendarIcon from '../../../assets/calendario.png'
 import heartIcon from '../../../assets/hearticon.png'
 import tarefaIcon from '../../../assets/tarefas.png'
 import moonIcon from '../../../assets/dormir.png'
@@ -12,8 +12,12 @@ import sunIcon from '../../../assets/sun.png'
 import gameIcon from '../../../assets/gameicon.png'
 // import * as Font from 'expo-font';
 import { useState } from "react";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../navigation/types";
 
-export default function App() {
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
+
+export const Home = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   // Função para carregar as fontes
@@ -60,7 +64,7 @@ export default function App() {
         </View>
         <View style={styles.containerPet}>
           <View style={styles.containerPetMain}>
-            <Image source={require('./assets/gifs/normal.gif')} style={styles.gif} resizeMode="contain"/>
+            <Image source={require('../../../assets/gifs/normal.gif')} style={styles.gif} resizeMode="contain"/>
           </View>
         </View>
         <View style={styles.iconFoodAndWater}>
