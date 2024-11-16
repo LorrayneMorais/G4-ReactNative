@@ -4,8 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from './src/navigation/types';
 import { Home } from './src/screens/home';
 
-
-
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
@@ -16,6 +14,6 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+  }
 
 

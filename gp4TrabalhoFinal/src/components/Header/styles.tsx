@@ -1,0 +1,103 @@
+import { StyleSheet } from "react-native"
+
+export const styles = StyleSheet.create({
+    topPag: {
+        width: "100%",
+        height: 85,
+        alignItems: "center",
+    },
+    topPagContent: {
+        borderColor: "red",
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
+        borderBottomLeftRadius: 5,
+        borderBottomRightRadius: 5,
+        paddingTop: 10,
+        paddingBottom: 16,
+        paddingHorizontal: 35,
+    },
+    topPagContentText: {
+        fontSize: 40,
+        fontWeight: 600,
+        paddingTop: 10
+    },
+    topPagBarsFoodAndWater: {
+        alignItems: "center",
+        justifyContent: "space-around",
+        flexDirection: "row",
+        height: 30,
+    },
+    topPagBarsFood: {
+        flexDirection: "row",
+        backgroundColor: "white",
+        width: 150,
+        borderRadius: 20,
+        justifyContent: "space-between",
+        height: "100%",
+    },
+    topPagBarsFoodBlockOne: {
+        borderRightWidth: 1,
+        borderTopLeftRadius: 110,
+        borderBottomLeftRadius: 110,
+        height: "100%",
+        backgroundColor: "orange",
+        width: "25%",
+    },
+    topPagBarsFoodBlockTwo: {
+        borderLeftWidth: 1,
+        height: "100%",
+        backgroundColor: "orange",
+        width: "25%",
+    },
+    topPagBarsFoodBlockThree: {
+        borderLeftWidth: 1,
+        height: "100%",
+        backgroundColor: "orange",
+        width: "25%",
+    },
+    topPagBarsFoodBlockFour: {
+        borderLeftWidth: 2,
+        borderTopRightRadius: 110,
+        borderBottomRightRadius: 110,
+        height: "100%",
+        backgroundColor: "orange",
+        width: "25%",
+    },
+    topPagBarsWater: {
+        flexDirection: "row",
+        backgroundColor: "white",
+        width: 150,
+        borderRadius: 20,
+        justifyContent: "space-between",
+        height: "100%",
+    },
+    topPagBarsWaterBlockOne: {
+        borderRightWidth: 1,
+        borderTopLeftRadius: 110,
+        borderBottomLeftRadius: 110,
+        height: "100%",
+        backgroundColor: "#1CD4E9",
+        width: "25%",
+    },
+    topPagBarsWaterBlockTwo: {
+        borderLeftWidth: 1,
+        height: "100%",
+        backgroundColor: "#1CD4E9",
+        width: "25%",
+    },
+    topPagBarsWaterBlockThree: {
+        borderLeftWidth: 1,
+        height: "100%",
+        backgroundColor: "#1CD4E9",
+        width: "25%",
+    },
+    topPagBarsWaterBlockFour: {
+        borderLeftWidth: 2,
+        borderTopRightRadius: 110,
+        borderBottomRightRadius: 110,
+        height: "100%",
+        backgroundColor: "#1CD4E9",
+        width: "25%",
+    },
+})
