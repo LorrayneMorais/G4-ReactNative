@@ -10,7 +10,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Tarefas'>
+      <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen options={{headerShown: false}} name='Home' component={Home}/>
         <Stack.Screen options={{headerShown: false}} name='Tarefas' component={Tarefas}/>
       </Stack.Navigator>

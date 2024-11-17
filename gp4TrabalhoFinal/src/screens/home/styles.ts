@@ -137,7 +137,7 @@ export const styles = StyleSheet.create({
   },
   containerPetMain: {
     borderWidth: 9,
-    borderRadius: '50%',
+    borderRadius: 300,
     width: 330,
     height: 330,
     alignItems: 'center',
@@ -165,12 +165,12 @@ export const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: '50%'
+    borderRadius: 50
   },
   iconFoodImage: {
     width: 30,
     height: 30,
-    borderRadius: '50%'
+    borderRadius: 50
   },
   iconWater: {
     borderWidth: 1,
@@ -179,12 +179,12 @@ export const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: '50%'
+    borderRadius: 50
   },
   iconWaterImage: {
     width: 30,
     height: 30,
-    borderRadius: '50%'
+    borderRadius: 50
   },
   buttonsInteract: {
     flexDirection: 'row',
@@ -199,7 +199,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: 'gray',
     width: '30%',
-    borderRadius: '50%',
+    borderRadius: 150,
     height: 120,
     marginTop: 10,
     justifyContent: 'center',
