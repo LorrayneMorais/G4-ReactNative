@@ -7,6 +7,13 @@ export const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: "#f5f5f5",
     },
+
+    gif: {
+        width: 250,
+        height: 250,
+        resizeMode: 'contain'
+    },
+
     // Cabeçalho do calendário
     header: {
         flexDirection: "row",

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, TouchableOpacity, FlatList, Modal, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, TouchableOpacity, Image, FlatList, Modal, StyleSheet } from 'react-native';
 import { styles } from './stylesCompromisso';
 
 
@@ -39,6 +39,11 @@ const ListaCompromissos = () => {
 
     return (
         <View style={styles.container}>
+
+            <View>
+                <Image source={require('../../../assets/gifs/feliz.gif')} style={styles.gif} resizeMode="contain" />
+            </View>
+
             <FlatList
                 data={compromissos.sort((a, b) => a.horario.localeCompare(b.horario))}
                 renderItem={renderItem}
