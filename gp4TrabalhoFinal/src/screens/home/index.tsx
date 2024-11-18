@@ -34,23 +34,24 @@ export const Home = () => {
   const [error, setError] = useState('');
   const [isSunny, setIsSunny] = useState(false);
   const [isRainy, setIsRainy] = useState(false);
+  const [isCloud, setIsCloud] = useState(false);
   const today = new Date();
   const day = today.getDate()
-  const apiKey = 'fb37300e35aa0e286c226c877d5bc5cd';
+  const apiKey = '8274cf4646fe3a0b32b447a00828a40f';
 
   const fetchWeather = async () => {
     setLoading(true);
     setError('');
 
-    const url = `http://apiadvisor.climatempo.com.br/api/v1/anl/synoptic/locale/BR?token=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=Rio+de+Janeiro&appid=${apiKey}&units=metric&lang=pt_br`;
 
     try {
       const response = await fetch(url);
       const data = await response.json();
       console.log(data);
-      if (data && data[0]) {
-        setWeatherData(data);
-        extractWeatherKeywords(data[0]?.text || '');
+      if (data.weather && data.weather.length > 0) {
+        setWeatherData(data.weather[0].description);
+        extractWeatherKeywords(data.weather[0].description || '');
       }
     } catch (err) {
       setError('Erro ao buscar dados do clima');
@@ -116,11 +117,13 @@ export const Home = () => {
   }
 
   const extractWeatherKeywords = (text: string) => {
-    const sunnyCondition = text.toLowerCase().includes('sol');
+    const sunnyCondition = text.toLowerCase().includes('céu limpo');
     const rainyCondition = text.toLowerCase().includes('chuva');
+    const cloudCondition = text.toLowerCase().includes('nuvens');
 
     setIsSunny(sunnyCondition);
     setIsRainy(rainyCondition);
+    setIsCloud(cloudCondition)
   };
 
   // Função para carregar as fontes
@@ -192,7 +195,14 @@ export const Home = () => {
               style={styles.rainGifMode} 
               resizeMode="contain"
             />
-    )}
+            )}
+            {isCloud && (
+            <Image
+              source={require('../../../assets/gifs/cloudpetGiff.gif')}
+              style={styles.rainGifMode} 
+              resizeMode="contain"
+            />
+            )}
           </View>
         </View>
         <View style={styles.iconFoodAndWater}>
