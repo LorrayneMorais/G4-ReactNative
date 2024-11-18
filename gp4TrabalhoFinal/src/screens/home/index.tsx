@@ -199,7 +199,7 @@ export const Home = () => {
             {isCloud && (
             <Image
               source={require('../../../assets/gifs/cloudpetGiff.gif')}
-              style={styles.rainGifMode} 
+              style={styles.cloudGifMode} 
               resizeMode="contain"
             />
             )}

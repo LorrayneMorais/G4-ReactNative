@@ -159,6 +159,12 @@ export const styles = StyleSheet.create({
     width: 350,
     height: 350,
   },
+  cloudGifMode: {
+    position: 'absolute',
+    top: -10,
+    width: 250,
+    height: 250,
+  },
   gif: {
     width: 350,
     height: 350,
