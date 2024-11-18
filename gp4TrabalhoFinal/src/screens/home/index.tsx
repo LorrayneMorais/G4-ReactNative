@@ -34,7 +34,8 @@ export const Home = () => {
   const [error, setError] = useState('');
   const [isSunny, setIsSunny] = useState(false);
   const [isRainy, setIsRainy] = useState(false);
-
+  const today = new Date();
+  const day = today.getDate()
   const apiKey = 'fb37300e35aa0e286c226c877d5bc5cd';
 
   const fetchWeather = async () => {
@@ -47,8 +48,8 @@ export const Home = () => {
       const response = await fetch(url);
       const data = await response.json();
       console.log(data);
-      setWeatherData(data);
       if (data && data[0]) {
+        setWeatherData(data);
         extractWeatherKeywords(data[0]?.text || '');
       }
     } catch (err) {
@@ -61,9 +62,6 @@ export const Home = () => {
   useEffect(() => {
     fetchWeather();
   }, []);
-
-  const today = new Date();
-  const day = today.getDate()
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -118,19 +116,11 @@ export const Home = () => {
   }
 
   const extractWeatherKeywords = (text: string) => {
-    const keywords = ['sol', 'chuva', 'nuvens carregadas', 'frente fria', 'tempestade', 'baixa pressão'];
-
     const sunnyCondition = text.toLowerCase().includes('sol');
-    if (sunnyCondition !== isSunny) {
-      setIsSunny(sunnyCondition);
-    }
-
     const rainyCondition = text.toLowerCase().includes('chuva');
-    if (rainyCondition  !== isRainy) {
-      setIsRainy(rainyCondition);
-    }
 
-    return keywords.filter((word) => text.toLowerCase().includes(word));
+    setIsSunny(sunnyCondition);
+    setIsRainy(rainyCondition);
   };
 
   // Função para carregar as fontes
@@ -148,7 +138,7 @@ export const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Button title="Obter Clima" onPress={fetchWeather} />
+      {/* <Button title="Obter Clima" onPress={fetchWeather} />
       
       {loading && <Text>Carregando...</Text>}
       {error && <Text>{error}</Text>}
@@ -158,7 +148,7 @@ export const Home = () => {
           <Text>Condições climáticas:</Text>
           <Text>{extractWeatherKeywords(weatherData[0]?.text || '').join(', ')}</Text>
         </View>
-      )}
+      )} */}
       <ImageBackground source={backgroundImag} style={styles.backgroundImage} resizeMode="cover">
         <View style={styles.topPag}>
           <View style={styles.topPagContent}>
