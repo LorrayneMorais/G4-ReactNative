@@ -147,10 +147,22 @@ export const styles = StyleSheet.create({
     shadowOpacity: 1,   // Opacidade da sombra
     shadowRadius: 22,      // Raio de difusão da sombra
   },
+  sunGifMode: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    width: 150,
+    height: 150,
+  },
+  rainGifMode: {
+    position: 'absolute',
+    width: 350,
+    height: 350,
+  },
   gif: {
     width: 350,
     height: 350,
-    resizeMode: "contain"
+    resizeMode: "contain",
   },
   iconFoodAndWater: {
     // borderWidth: 1,
