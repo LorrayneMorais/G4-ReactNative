@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import backgroundImag from "../../../assets/background.png";
 import iconEat from '../../../assets/eat.png'
@@ -15,8 +15,13 @@ import { useEffect, useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../navigation/types";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
+
+type WeatherData = {
+  text: string;
+};
 
 export const Home = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -24,6 +29,39 @@ export const Home = () => {
   const [waterLevel, setWaterLevel] = useState(4);
   const [gifSource, setGifSource] = useState(require('../../../assets/gifs/feliz.gif'));
   const navigation = useNavigation<HomeScreenNavigationProp>();
+  const [weatherData, setWeatherData] = useState<WeatherData[] | null>(null);;
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [isSunny, setIsSunny] = useState(false);
+  const [isRainy, setIsRainy] = useState(false);
+  const today = new Date();
+  const day = today.getDate()
+  const apiKey = 'fb37300e35aa0e286c226c877d5bc5cd';
+
+  const fetchWeather = async () => {
+    setLoading(true);
+    setError('');
+
+    const url = `http://apiadvisor.climatempo.com.br/api/v1/anl/synoptic/locale/BR?token=${apiKey}`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data);
+      if (data && data[0]) {
+        setWeatherData(data);
+        extractWeatherKeywords(data[0]?.text || '');
+      }
+    } catch (err) {
+      setError('Erro ao buscar dados do clima');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchWeather();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -77,6 +115,14 @@ export const Home = () => {
     navigation.navigate('Tarefas');
   }
 
+  const extractWeatherKeywords = (text: string) => {
+    const sunnyCondition = text.toLowerCase().includes('sol');
+    const rainyCondition = text.toLowerCase().includes('chuva');
+
+    setIsSunny(sunnyCondition);
+    setIsRainy(rainyCondition);
+  };
+
   // Função para carregar as fontes
   // const loadFonts = async () => {
   //   await Font.loadAsync({
@@ -92,6 +138,17 @@ export const Home = () => {
 
   return (
     <View style={styles.container}>
+      {/* <Button title="Obter Clima" onPress={fetchWeather} />
+      
+      {loading && <Text>Carregando...</Text>}
+      {error && <Text>{error}</Text>}
+      
+      {weatherData && (
+        <View>
+          <Text>Condições climáticas:</Text>
+          <Text>{extractWeatherKeywords(weatherData[0]?.text || '').join(', ')}</Text>
+        </View>
+      )} */}
       <ImageBackground source={backgroundImag} style={styles.backgroundImage} resizeMode="cover">
         <View style={styles.topPag}>
           <View style={styles.topPagContent}>
@@ -116,12 +173,26 @@ export const Home = () => {
         </View>
         <View style={styles.date}>
           <View style={styles.dateContainer}>
-            <Text style={styles.dateContainerText}>29</Text>
+            <Text style={styles.dateContainerText}>{day}</Text>
           </View>
         </View>
         <View style={styles.containerPet}>
           <View style={styles.containerPetMain}>
             <Image source={gifSource} style={styles.gif} resizeMode="contain"/>
+            {isSunny && (
+            <Image
+            source={require('../../../assets/gifs/sunGifPet.gif')}
+            style={styles.sunGifMode} 
+            resizeMode="contain"
+            />
+            )}
+            {isRainy && (
+            <Image
+              source={require('../../../assets/gifs/rainGifPet.gif')}
+              style={styles.rainGifMode} 
+              resizeMode="contain"
+            />
+    )}
           </View>
         </View>
         <View style={styles.iconFoodAndWater}>
