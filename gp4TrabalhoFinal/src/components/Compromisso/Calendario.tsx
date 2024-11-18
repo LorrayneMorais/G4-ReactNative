@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import styles from './CalendarioStyle'; // Importa os estilos do arquivo separado
+import stylesCompromisso from './stylesCompromisso';
 
 const Calendar: React.FC = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
@@ -18,14 +18,14 @@ const Calendar: React.FC = () => {
 
         // Preencher os dias vazios antes do início do mês
         for (let i = 0; i < firstDayOfMonth; i++) {
-            days.push(<View style={styles.day} key={`empty-start-${i}`} />);
+            days.push(<View style={stylesCompromisso.day} key={`empty-start-${i}`} />);
         }
 
         // Adicionar os dias do mês
         for (let day = 1; day <= totalDays; day++) {
             days.push(
-                <TouchableOpacity style={styles.day} key={day}>
-                    <Text style={styles.dayText}>{day}</Text>
+                <TouchableOpacity style={stylesCompromisso.day} key={day}>
+                    <Text style={stylesCompromisso.dayText}>{day}</Text>
                 </TouchableOpacity>
             );
         }
@@ -33,7 +33,7 @@ const Calendar: React.FC = () => {
         // Preencher os dias vazios no final para alinhar as semanas
         const remainingSpaces = (7 - (days.length % 7)) % 7;
         for (let i = 0; i < remainingSpaces; i++) {
-            days.push(<View style={styles.day} key={`empty-end-${i}`} />);
+            days.push(<View style={stylesCompromisso.day} key={`empty-end-${i}`} />);
         }
 
         return days;
@@ -58,34 +58,34 @@ const Calendar: React.FC = () => {
     };
 
     return (
-        <View style={styles.container}>
+        <View style={stylesCompromisso.container}>
             {/* Cabeçalho do calendário */}
-            <View style={styles.header}>
+            <View style={stylesCompromisso.header}>
                 <TouchableOpacity onPress={handlePreviousMonth}>
-                    <Text style={styles.navText}>{"<"}</Text>
+                    <Text style={stylesCompromisso.navText}>{"<"}</Text>
                 </TouchableOpacity>
-                <Text style={styles.headerText}>
+                <Text style={stylesCompromisso.headerText}>
                     {currentDate.toLocaleString("default", {
                         month: "long",
                     })}{" "}
                     {currentDate.getFullYear()}
                 </Text>
                 <TouchableOpacity onPress={handleNextMonth}>
-                    <Text style={styles.navText}>{">"}</Text>
+                    <Text style={stylesCompromisso.navText}>{">"}</Text>
                 </TouchableOpacity>
             </View>
 
             {/* Dias da semana */}
-            <View style={styles.weekDays}>
+            <View style={stylesCompromisso.weekDays}>
                 {["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"].map((day, index) => (
-                    <Text style={styles.weekDayText} key={index}>
+                    <Text style={stylesCompromisso.weekDayText} key={index}>
                         {day}
                     </Text>
                 ))}
             </View>
 
             {/* Dias do mês */}
-            <View style={styles.daysContainer}>{renderDays()}</View>
+            <View style={stylesCompromisso.daysContainer}>{renderDays()}</View>
         </View>
     );
 };

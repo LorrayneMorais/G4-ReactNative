@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, FlatList, Modal, StyleSheet } from 'react-native';
-import { Compromisso, styles } from './listaCompromissoStyles';
+import { styles } from './stylesCompromisso';
+
+
+type Compromisso = {
+    id: number;
+    nome: string;
+    dia: string;
+    horario: string;
+};
 
 const ListaCompromissos = () => {
     const [compromissos, setCompromissos] = useState<Compromisso[]>([]);
