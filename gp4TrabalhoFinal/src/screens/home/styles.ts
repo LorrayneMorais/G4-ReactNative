@@ -127,7 +127,8 @@ export const styles = StyleSheet.create({
     marginLeft: 15
   },
   dateContainerText: {
-    fontSize: 40
+    fontSize: 37,
+    fontWeight: 'bold'
   },
   containerPet: {
     // borderWidth: 1,
@@ -159,6 +160,12 @@ export const styles = StyleSheet.create({
     width: 350,
     height: 350,
   },
+  cloudGifMode: {
+    position: 'absolute',
+    top: -10,
+    width: 250,
+    height: 250,
+  },
   gif: {
     width: 350,
     height: 350,
@@ -171,8 +178,7 @@ export const styles = StyleSheet.create({
     gap: 170
   },
   iconFood: {
-    borderWidth: 1,
-    backgroundColor: 'gray',
+    // borderWidth: 1,
     width: 50,
     height: 50,
     justifyContent: 'center',
@@ -180,49 +186,116 @@ export const styles = StyleSheet.create({
     borderRadius: 50
   },
   iconFoodImage: {
-    width: 30,
-    height: 30,
-    borderRadius: 50
+    width: 70,
+    height: 70,
+    borderRadius: 35,
   },
   iconWater: {
-    borderWidth: 1,
-    backgroundColor: 'gray',
+    // borderWidth: 1,
     width: 50,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 50
   },
   iconWaterImage: {
-    width: 30,
-    height: 30,
-    borderRadius: 50
+    width: 70,
+    height: 70,
   },
   buttonsInteract: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-around',
     width: '100%',
     marginTop: 50,
+    justifyContent: 'center',
+    gap: 10,
     // borderWidth: 1,
     padding: 5
   },
   buttonsInteractOne: {
-    borderWidth: 1,
-    backgroundColor: 'gray',
+    // borderWidth: 1,
     width: '30%',
     borderRadius: 150,
     height: 120,
     marginTop: 10,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    overflow: 'hidden'
+  },
+  buttonsInteractTwo: {
+    // borderWidth: 1,
+    width: '30%',
+    borderRadius: 250,
+    height: 120,
+    marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden'
+  },
+  buttonsInteractThree: {
+    // borderWidth: 1,
+    width: '30%',
+    borderRadius: 150,
+    height: 120,
+    marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden'
+  },
+  buttonsInteractFour: {
+    // borderWidth: 1,
+    width: '30%',
+    borderRadius: 150,
+    height: 120,
+    marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden'
+  },
+  buttonsInteractFive: {
+    borderWidth: 1,
+    backgroundColor: 'silver',
+    width: '30%',
+    borderRadius: 150,
+    height: 120,
+    marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#80EDD4',
+    shadowOpacity: 1,
+    shadowRadius: 10, // Difusão da sombra
+  },
+  buttonsBordersCalendar:{
+    width: 160,
+    height: 160,
+    resizeMode: "cover"
+  },
+  buttonsBordersHeart: {
+    width: 210,
+    height: 210,
+    resizeMode: "cover"
+  },
+  buttonsBordersTarefas: {
+    width: 180,
+    height: 180,
+    resizeMode: "cover"
+  },
+  buttonsBordersMoon: {
+    width: 260,
+    height: 260,
+    resizeMode: "cover"
+  },
+  buttonsBordersExercicio: {
+    width: 200,
+    height: 200,
+    resizeMode: "cover"
   },
   buttonsInteractIcons: {
-    width: 90,
-    height: 80
+    width: 65,
+    height: 55,
   },
   buttonsInteractIconsSecond: {
-    width: 80,
-    height: 80
-  }
+    width: 60,
+    height: 60
+  }
 });
