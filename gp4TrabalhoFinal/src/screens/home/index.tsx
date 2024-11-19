@@ -90,7 +90,7 @@ export const Home = () => {
   useEffect(() => {
     const intervalWater = setInterval(() => {
       setWaterLevel((prev) => Math.max(prev - 1, 0));
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(intervalWater);
   }, []);
@@ -127,9 +127,11 @@ export const Home = () => {
 
   const handleGifCorrer = () => {
     setGifSource(require('../../../assets/gifs/gitCorrendobdNew.gif'));
+    setGifStyles(styles.gif);
 
     setTimeout(() => {
       setGifSource(require('../../../assets/gifs/gifNormalbdNew.gif'));
+      setGifStyles(styles.gif)
     }, 7000);
   };
 
