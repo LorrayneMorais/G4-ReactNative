@@ -36,6 +36,7 @@ export const Home = () => {
   const [isSunny, setIsSunny] = useState(false);
   const [isRainy, setIsRainy] = useState(false);
   const [isCloud, setIsCloud] = useState(false);
+  const [isNub, setIsNub] = useState(false);
   const today = new Date();
   const day = today.getDate()
   const apiKey = '8274cf4646fe3a0b32b447a00828a40f';
@@ -140,10 +141,13 @@ export const Home = () => {
     const sunnyCondition = text.toLowerCase().includes('céu limpo');
     const rainyCondition = text.toLowerCase().includes('chuva');
     const cloudCondition = text.toLowerCase().includes('nuvens');
+    const nubCondition = text.toLowerCase().includes('nublado');
 
     setIsSunny(sunnyCondition);
     setIsRainy(rainyCondition);
-    setIsCloud(cloudCondition)
+    setIsCloud(cloudCondition);
+    setIsCloud(cloudCondition);
+    setIsNub(nubCondition);
   };
 
   // Função para carregar as fontes
@@ -215,6 +219,13 @@ export const Home = () => {
             />
             )}
             {isCloud && (
+            <Image
+              source={require('../../../assets/gifs/cloudpetGiff.gif')}
+              style={styles.cloudGifMode} 
+              resizeMode="contain"
+            />
+            )}
+            {isNub && (
             <Image
               source={require('../../../assets/gifs/cloudpetGiff.gif')}
               style={styles.cloudGifMode} 
