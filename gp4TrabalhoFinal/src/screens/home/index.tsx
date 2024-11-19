@@ -1,21 +1,20 @@
-import { StatusBar } from "expo-status-bar";
 import { Button, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import backgroundImag from "../../../assets/background.png";
-import iconEat from '../../../assets/eat.png'
-import iconWater from '../../../assets/water.png'
-import calendarIcon from '../../../assets/calendario.png'
-import heartIcon from '../../../assets/hearticon.png'
-import tarefaIcon from '../../../assets/tarefas.png'
-import moonIcon from '../../../assets/dormir.png'
-import sunIcon from '../../../assets/sun.png'
-import gameIcon from '../../../assets/gameicon.png'
+import botaoHeartCoracao from '../../../assets/botaoHeartCoracao.png'
+import buttonMoonIconLua from '../../../assets/buttonMoonIconLua.png'
+import botaoHalter from '../../../assets/botaoHalter.png'
+import tarefasIconTar from '../../../assets/tarefasIconTar.png'
+import calendarioIconCalendar from '../../../assets/calendarioIconCalendar.png'
+import buttonFood from '../../../assets/buttonFoodIcon.png'
+import buttonWater from '../../../assets/sem.png'
+
+// import gameIcon from '../../../assets/gameicon.png'
 // import * as Font from 'expo-font';
 import { useEffect, useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../navigation/types";
 import { useNavigation } from "@react-navigation/native";
-import axios from "axios";
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
 
@@ -207,21 +206,20 @@ export const Home = () => {
         </View>
         <View style={styles.iconFoodAndWater}>
           <TouchableOpacity style={styles.iconFood} onPress={increaseHunger}>
-            <Image source={iconEat} style={styles.iconFoodImage}/>
+            <Image source={buttonFood} style={styles.iconFoodImage}/>
           </TouchableOpacity>
           <TouchableOpacity style={styles.iconWater} onPress={increaseWater}>
-            <Image source={iconWater} style={styles.iconWaterImage}/>
+            <Image source={buttonWater} style={styles.iconWaterImage}/>
           </TouchableOpacity>
         </View>
         <View style={styles.buttonsInteract}>
-          <TouchableOpacity style={styles.buttonsInteractOne}><Image source={calendarIcon} style={styles.buttonsInteractIcons}/></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractOne} onPress={handleGifCarinho}><Image source={heartIcon} style={styles.buttonsInteractIcons}/></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractOne} onPress={navigationTarefas}><Image source={tarefaIcon} style={styles.buttonsInteractIcons}/></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractOne} onPress={handleGifDormir}><Image source={moonIcon} style={styles.buttonsInteractIconsSecond}/></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractOne}><Image source={sunIcon} style={styles.buttonsInteractIconsSecond}/></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractOne} onPress={handleGifCorrer}><Image source={gameIcon} style={styles.buttonsInteractIcons}/></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractOne}><Image source={calendarioIconCalendar} style={styles.buttonsBordersCalendar}></Image></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractTwo} onPress={handleGifCarinho}><Image source={botaoHeartCoracao} style={styles.buttonsBordersHeart}></Image></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractThree} onPress={navigationTarefas}><Image source={tarefasIconTar} style={styles.buttonsBordersTarefas}></Image ></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifDormir}><Image source={buttonMoonIconLua} style={styles.buttonsBordersMoon}></Image></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifCorrer}><Image source={botaoHalter} style={styles.buttonsBordersExercicio}></Image ></TouchableOpacity>
         </View>
       </ImageBackground>
-    </View>
-  );
+    </View>
+  );
 }
