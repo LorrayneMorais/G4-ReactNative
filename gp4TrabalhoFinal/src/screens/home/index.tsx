@@ -67,11 +67,24 @@ export const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setHungerLevel((prev) => Math.max(prev - 1, 0));
+      setHungerLevel((prev) => {
+        const newHungerLevel = Math.max(prev - 1, 0);
+  
+        if (newHungerLevel === 0) {
+          setGifSource(require('../../../assets/gifs/fomeIrritadoBd.gif'));
+          setGifStyles(styles.gifMudanca)
+        } else {
+          setGifSource(require('../../../assets/gifs/gifNormalbdNew.gif'));
+          setGifStyles(styles.gif)
+        }
+  
+        return newHungerLevel;
+      });
     }, 5000);
-
+  
     return () => clearInterval(interval);
   }, []);
+  
 
   useEffect(() => {
     const intervalWater = setInterval(() => {
@@ -83,6 +96,8 @@ export const Home = () => {
 
   const increaseHunger = () => {
     setHungerLevel((prev) => Math.min(prev + 1, 4));
+    setGifSource(require('../../../assets/gifs/gifNormalbdNew.gif'));
+    setGifStyles(styles.gif)
   };
 
   const increaseWater = () => {

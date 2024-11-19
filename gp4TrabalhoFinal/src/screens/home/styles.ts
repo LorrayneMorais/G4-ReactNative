@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     // borderWidth: 1,
     height: 30,
+    marginTop: 30
   },
   topPagBarsFood: {
     flexDirection: "row",
@@ -141,15 +142,16 @@ export const styles = StyleSheet.create({
   },
   containerPetMain: {
     borderWidth: 9,
+    backgroundColor: '#80EDD4',
     borderRadius: 300,
     width: 330,
     height: 330,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    shadowColor: 'black',  // Cor da sombra
-    shadowOpacity: 1,   // Opacidade da sombra
-    shadowRadius: 22,      // Raio de difusão da sombra
+    shadowColor: 'black',
+    shadowOpacity: 1,
+    shadowRadius: 22,
   },
   sunGifMode: {
     position: 'absolute',
