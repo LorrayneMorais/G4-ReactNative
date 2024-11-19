@@ -28,9 +28,12 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 35,
   },
   topPagContentText: {
-    fontSize: 40,
-    // fontFamily: 'Doto',
-    fontWeight: 600
+    width: 230,
+    height: 65,
+    shadowColor: '#fff',  // Cor da sombra
+    shadowOffset: { width: 0, height: 3 },  // Distância da sombra
+    shadowOpacity: 1,  // Opacidade da sombra
+    shadowRadius: 5,  // Desfoque da sombra
   },
   topPagBarsFoodAndWater: {
     alignItems: "center",
@@ -154,21 +157,30 @@ export const styles = StyleSheet.create({
     right: 0,
     width: 150,
     height: 150,
+    zIndex: -1
   },
   rainGifMode: {
     position: 'absolute',
     width: 350,
     height: 350,
+    zIndex: -1
   },
   cloudGifMode: {
     position: 'absolute',
     top: -10,
-    width: 250,
-    height: 250,
+    left: -20,
+    width: 320,
+    height: 320,
+    zIndex: -1
   },
   gif: {
-    width: 350,
-    height: 350,
+    width: 250,
+    height: 250,
+    resizeMode: "contain",
+  },
+  gifMudanca: {
+    width: 335,
+    height: 335 ,
     resizeMode: "contain",
   },
   iconFoodAndWater: {

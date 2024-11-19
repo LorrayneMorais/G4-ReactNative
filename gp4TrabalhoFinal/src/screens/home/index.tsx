@@ -6,6 +6,7 @@ import buttonMoonIconLua from '../../../assets/buttonMoonIconLua.png'
 import botaoHalter from '../../../assets/botaoHalter.png'
 import tarefasIconTar from '../../../assets/tarefasIconTar.png'
 import calendarioIconCalendar from '../../../assets/calendarioIconCalendar.png'
+import virtualPet from '../../../assets/virtualPet.png'
 import buttonFood from '../../../assets/buttonFoodIcon.png'
 import buttonWater from '../../../assets/sem.png'
 
@@ -26,7 +27,8 @@ export const Home = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const [hungerLevel, setHungerLevel] = useState(4);
   const [waterLevel, setWaterLevel] = useState(4);
-  const [gifSource, setGifSource] = useState(require('../../../assets/gifs/feliz.gif'));
+  const [gifSource, setGifSource] = useState(require('../../../assets/gifs/gifNormalbdNew.gif'));
+  const [gifStyles, setGifStyles] = useState(styles.gif);
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const [weatherData, setWeatherData] = useState<WeatherData[] | null>(null);;
   const [loading, setLoading] = useState(false);
@@ -88,26 +90,30 @@ export const Home = () => {
   };
 
   const handleGifCarinho = () => {
-    setGifSource(require('../../../assets/gifs/carinho.gif'));
+    setGifSource(require('../../../assets/gifs/gifCarinhobd.gif'));
+    setGifStyles(styles.gifMudanca);
 
     setTimeout(() => {
-      setGifSource(require('../../../assets/gifs/feliz.gif'));
+      setGifSource(require('../../../assets/gifs/gifNormalbdNew.gif'));
+      setGifStyles(styles.gif)
     }, 3000);
   };
 
   const handleGifDormir = () => {
-    setGifSource(require('../../../assets/gifs/dormir.gif'));
+    setGifSource(require('../../../assets/gifs/gifDormirbd.gif'));
+    setGifStyles(styles.gifMudanca);
 
     setTimeout(() => {
-      setGifSource(require('../../../assets/gifs/feliz.gif'));
+      setGifSource(require('../../../assets/gifs/gifNormalbdNew.gif'));
+      setGifStyles(styles.gif)
     }, 7000);
   };
 
   const handleGifCorrer = () => {
-    setGifSource(require('../../../assets/gifs/normal.gif'));
+    setGifSource(require('../../../assets/gifs/gitCorrendobdNew.gif'));
 
     setTimeout(() => {
-      setGifSource(require('../../../assets/gifs/feliz.gif'));
+      setGifSource(require('../../../assets/gifs/gifNormalbdNew.gif'));
     }, 7000);
   };
 
@@ -154,9 +160,7 @@ export const Home = () => {
       <ImageBackground source={backgroundImag} style={styles.backgroundImage} resizeMode="cover">
         <View style={styles.topPag}>
           <View style={styles.topPagContent}>
-              <Text style={styles.topPagContentText}>
-                Virtual Pet
-              </Text>
+              <Image source={virtualPet} style={styles.topPagContentText}></Image>
           </View>
         </View>
         <View style={styles.topPagBarsFoodAndWater}>
@@ -180,7 +184,7 @@ export const Home = () => {
         </View>
         <View style={styles.containerPet}>
           <View style={styles.containerPetMain}>
-            <Image source={gifSource} style={styles.gif} resizeMode="contain"/>
+            <Image source={gifSource} style={gifStyles} resizeMode="contain"/>
             {isSunny && (
             <Image
             source={require('../../../assets/gifs/sunGifPet.gif')}
