@@ -16,13 +16,13 @@ export const styles = StyleSheet.create({
     // marginBottom: 5
   },
   topPagContent: {
-    borderColor: "red",
+    borderColor: "black",
     // borderWidth: 1,
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderBottomWidth: 1,
-    borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5,
+    borderLeftWidth: 6,
+    borderRightWidth: 6,
+    borderBottomWidth: 6,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
     paddingTop: 10,
     paddingBottom: 16,
     paddingHorizontal: 35,
@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     // borderWidth: 1,
     height: 30,
+    marginTop: 30
   },
   topPagBarsFood: {
     flexDirection: "row",
@@ -141,15 +142,16 @@ export const styles = StyleSheet.create({
   },
   containerPetMain: {
     borderWidth: 9,
+    backgroundColor: '#80EDD4',
     borderRadius: 300,
     width: 330,
     height: 330,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    shadowColor: 'black',  // Cor da sombra
-    shadowOpacity: 1,   // Opacidade da sombra
-    shadowRadius: 22,      // Raio de difusão da sombra
+    shadowColor: 'black',
+    shadowOpacity: 1,
+    shadowRadius: 22,
   },
   sunGifMode: {
     position: 'absolute',
