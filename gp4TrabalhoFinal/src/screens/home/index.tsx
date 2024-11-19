@@ -9,9 +9,6 @@ import calendarioIconCalendar from '../../../assets/calendarioIconCalendar.png'
 import virtualPet from '../../../assets/virtualPet.png'
 import buttonFood from '../../../assets/buttonFoodIcon.png'
 import buttonWater from '../../../assets/sem.png'
-
-// import gameIcon from '../../../assets/gameicon.png'
-// import * as Font from 'expo-font';
 import { useEffect, useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../navigation/types";
@@ -139,6 +136,10 @@ export const Home = () => {
     navigation.navigate('Tarefas');
   }
 
+  const navigationCalendar = () => {
+    navigation.navigate('ListaCompromisso');
+  }
+
   const extractWeatherKeywords = (text: string) => {
     const sunnyCondition = text.toLowerCase().includes('céu limpo');
     const rainyCondition = text.toLowerCase().includes('chuva');
@@ -245,7 +246,7 @@ export const Home = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.buttonsInteract}>
-          <TouchableOpacity style={styles.buttonsInteractOne}><Image source={calendarioIconCalendar} style={styles.buttonsBordersCalendar}></Image></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractOne} onPress={navigationCalendar}><Image source={calendarioIconCalendar} style={styles.buttonsBordersCalendar}></Image></TouchableOpacity>
           <TouchableOpacity style={styles.buttonsInteractTwo} onPress={handleGifCarinho}><Image source={botaoHeartCoracao} style={styles.buttonsBordersHeart}></Image></TouchableOpacity>
           <TouchableOpacity style={styles.buttonsInteractThree} onPress={navigationTarefas}><Image source={tarefasIconTar} style={styles.buttonsBordersTarefas}></Image ></TouchableOpacity>
           <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifDormir}><Image source={buttonMoonIconLua} style={styles.buttonsBordersMoon}></Image></TouchableOpacity>
