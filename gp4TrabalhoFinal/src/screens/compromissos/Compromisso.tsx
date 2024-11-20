@@ -1,26 +1,21 @@
-// Compromisso.tsx
-
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, Image, FlatList } from 'react-native';
+import { Calendar, DateData } from 'react-native-calendars'; // Biblioteca para o calendário com tipagem do DateData
 import { styles } from './stylesCompromisso'; // Importando os estilos do arquivo separado
 
 // Definindo o tipo para os dados de compromisso
 type CompromissoType = {
     id: number;
     nome: string;
-    dia: string;
-    horario: string;
+    dia: string; // Formato: YYYY-MM-DD
+    horario: string; // Formato: HH:mm
 };
 
 const Compromisso = () => {
-    // Estado para armazenar os compromissos
     const [compromissos, setCompromissos] = useState<CompromissoType[]>([]);
-
-    // Estado para controlar a visibilidade do modal
     const [isModalVisible, setIsModalVisible] = useState(false);
-
-    // Estado para armazenar os dados do novo compromisso a ser adicionado
     const [novoCompromisso, setNovoCompromisso] = useState({ nome: '', dia: '', horario: '' });
+    const [dataSelecionada, setDataSelecionada] = useState<string>(''); // Tipando corretamente como string
 
     // Função para adicionar um novo compromisso
     const adicionarCompromisso = () => {
@@ -44,6 +39,21 @@ const Compromisso = () => {
         </View>
     );
 
+    // Gerando marcações para o calendário
+    const markedDates = compromissos.reduce((acc, compromisso) => {
+        acc[compromisso.dia] = { selected: true, marked: true, selectedColor: 'pink' };
+        return acc;
+    }, {} as Record<string, any>);
+
+    // Função para lidar com o pressionamento de uma data no calendário
+    const onDayPress = (day: DateData) => {
+        console.log("Dia selecionado:", day.dateString); // Exibe o dia selecionado
+        setDataSelecionada(day.dateString); // Atualiza a data selecionada
+    };
+
+    // Filtrando os compromissos para a data selecionada
+    const compromissosDoDia = compromissos.filter(comp => comp.dia === dataSelecionada);
+
     return (
         <View style={styles.container}>
             {/* Exibindo a imagem GIF */}
@@ -51,12 +61,27 @@ const Compromisso = () => {
                 <Image source={require('../../../assets/gifs/feliz.gif')} style={styles.gif} resizeMode="contain" />
             </View>
 
-            {/* Exibindo a lista de compromissos usando FlatList */}
-            <FlatList
-                data={compromissos.sort((a, b) => a.horario.localeCompare(b.horario))} // Ordenando por horário
-                renderItem={renderItem} // Função que define como renderizar cada item
-                keyExtractor={(item) => item.id.toString()} // Usando o id do compromisso como chave única
+            {/* Exibindo o calendário */}
+            <Calendar
+                onDayPress={onDayPress} // Passando a função com tipagem correta
+                markedDates={markedDates}
+                style={styles.calendar}
+                theme={{
+                    selectedDayBackgroundColor: 'pink',
+                    todayTextColor: 'blue',
+                }}
             />
+
+            {/* Exibindo os compromissos do dia selecionado */}
+            <View style={styles.compromissosContainer}>
+                <Text style={styles.title}>Compromissos para o dia {dataSelecionada}</Text>
+                <FlatList
+                    data={compromissosDoDia} // Mostrando apenas os compromissos do dia selecionado
+                    renderItem={renderItem} // Função que define como renderizar cada item
+                    keyExtractor={(item) => item.id.toString()} // Usando o id do compromisso como chave única
+                    ListEmptyComponent={<Text style={styles.noCompromissos}>Nenhum compromisso para este dia.</Text>}
+                />
+            </View>
 
             {/* Botão flutuante para adicionar um novo compromisso */}
             <TouchableOpacity style={styles.botaoAdicionar} onPress={() => setIsModalVisible(true)}>
