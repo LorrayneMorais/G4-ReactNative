@@ -5,7 +5,7 @@ import { Header } from "../../components/Header";
 import { SmallPet } from "../../components/SmallPet";
 import { ToDoList } from "../../components/ToDoList";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation/types";
+import { RootStackParamList } from "../../routes/navigation/types";
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Tarefas">;
 

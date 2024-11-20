@@ -13,7 +13,7 @@ import nubladopng from '../../../assets/nubladopng.png'
 import backgroundPet from '../../../assets/backgroundPet.png'
 import { useEffect, useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation/types";
+import { RootStackParamList } from "../../routes/navigation/types";
 import { useNavigation } from "@react-navigation/native";
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
