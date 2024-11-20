@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.0",
+    "@react-navigation/bottom-tabs": "^7.0.6",
+    "@react-navigation/native": "^7.0.3",
     "@react-navigation/stack": "^7.0.3",
     "axios": "^1.7.7",
     "expo": "~52.0.6",
@@ -23,9 +25,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@react-native-community/cli": "latest",
     "@types/react": "~18.3.12",
-    "typescript": "^5.3.3",
-    "@react-native-community/cli": "latest"
+    "typescript": "^5.3.3"
   },
   "private": true
 }

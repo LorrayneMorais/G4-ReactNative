@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   backgroundImage: {
     width: "100%",
@@ -142,7 +142,6 @@ export const styles = StyleSheet.create({
   },
   containerPetMain: {
     borderWidth: 9,
-    backgroundColor: '#80EDD4',
     borderRadius: 300,
     width: 330,
     height: 330,
@@ -169,8 +168,7 @@ export const styles = StyleSheet.create({
   },
   cloudGifMode: {
     position: 'absolute',
-    top: -10,
-    left: -20,
+    top: -120,
     width: 320,
     height: 320,
     zIndex: -1
