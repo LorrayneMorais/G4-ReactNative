@@ -9,6 +9,8 @@ import calendarioIconCalendar from '../../../assets/calendarioIconCalendar.png'
 import virtualPet from '../../../assets/virtualPet.png'
 import buttonFood from '../../../assets/buttonFoodIcon.png'
 import buttonWater from '../../../assets/sem.png'
+import nubladopng from '../../../assets/nubladopng.png'
+import backgroundPet from '../../../assets/backgroundPet.png'
 import { useEffect, useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../navigation/types";
@@ -149,7 +151,6 @@ export const Home = () => {
     setIsSunny(sunnyCondition);
     setIsRainy(rainyCondition);
     setIsCloud(cloudCondition);
-    setIsCloud(cloudCondition);
     setIsNub(nubCondition);
   };
 
@@ -205,7 +206,7 @@ export const Home = () => {
           </View>
         </View>
         <View style={styles.containerPet}>
-          <View style={styles.containerPetMain}>
+          <ImageBackground source={backgroundPet} style={styles.containerPetMain}>
             <Image source={gifSource} style={gifStyles} resizeMode="contain"/>
             {isSunny && (
             <Image
@@ -223,19 +224,19 @@ export const Home = () => {
             )}
             {isCloud && (
             <Image
-              source={require('../../../assets/gifs/cloudpetGiff.gif')}
+              source={require('../../../assets/gifs/nuvemgif.gif')}
               style={styles.cloudGifMode} 
               resizeMode="contain"
             />
             )}
             {isNub && (
             <Image
-              source={require('../../../assets/gifs/cloudpetGiff.gif')}
+              source={nubladopng}
               style={styles.cloudGifMode} 
               resizeMode="contain"
             />
             )}
-          </View>
+          </ImageBackground>
         </View>
         <View style={styles.iconFoodAndWater}>
           <TouchableOpacity style={styles.iconFood} onPress={increaseHunger}>
