@@ -1,71 +1,21 @@
-import { StyleSheet } from "react-native";
+// stylesCompromisso.ts
+
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    // Estilos do container principal
+    // Estilo do container principal
     container: {
         flex: 1,
         padding: 10,
         backgroundColor: "#f5f5f5",
     },
-
+    // Estilo para a imagem GIF
     gif: {
         width: 250,
         height: 250,
-        resizeMode: 'contain'
+        resizeMode: "contain",
     },
-
-    // Cabeçalho do calendário
-    header: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: 10,
-        backgroundColor: "#ffffff",
-        borderRadius: 8,
-        marginBottom: 10,
-        elevation: 2,
-    },
-    headerText: {
-        fontSize: 18,
-        fontWeight: "bold",
-        color: "#333",
-    },
-    navText: {
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "#007AFF",
-    },
-    // Dias da semana
-    weekDays: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        marginBottom: 5,
-    },
-    weekDayText: {
-        flex: 1,
-        textAlign: "center",
-        fontSize: 14,
-        fontWeight: "bold",
-        color: "#666",
-    },
-    // Dias do mês
-    daysContainer: {
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "space-between",
-    },
-    day: {
-        width: "13%",
-        height: 40,
-        justifyContent: "center",
-        alignItems: "center",
-        marginVertical: 5,
-    },
-    dayText: {
-        fontSize: 16,
-        color: "#333",
-    },
-    // Estilos para compromissos
+    // Estilo do item de compromisso (cada item na lista)
     compromissoItem: {
         backgroundColor: "#ffffff",
         padding: 15,
@@ -76,6 +26,7 @@ export const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
     },
+    // Estilo do botão flutuante de adicionar compromisso
     botaoAdicionar: {
         position: "absolute",
         bottom: 20,
@@ -88,12 +39,13 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         elevation: 4,
     },
+    // Estilo do ícone do botão flutuante
     icon: {
         fontSize: 30,
         color: "#ffffff",
         fontWeight: "bold",
     },
-    // Modal para adicionar compromisso
+    // Estilo do modal onde o usuário insere o novo compromisso
     modalContainer: {
         position: "absolute",
         top: "30%",
@@ -104,6 +56,7 @@ export const styles = StyleSheet.create({
         borderRadius: 8,
         elevation: 4,
     },
+    // Estilo dos campos de entrada de texto (inputs)
     input: {
         borderBottomWidth: 1,
         borderBottomColor: "#ccc",

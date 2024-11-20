@@ -182,7 +182,7 @@ export const styles = StyleSheet.create({
   },
   gifMudanca: {
     width: 335,
-    height: 335 ,
+    height: 335,
     resizeMode: "contain",
   },
   iconFoodAndWater: {
@@ -279,7 +279,7 @@ export const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 10, // Difusão da sombra
   },
-  buttonsBordersCalendar:{
+  buttonsBordersCalendar: {
     width: 160,
     height: 160,
     resizeMode: "cover"
@@ -310,6 +310,6 @@ export const styles = StyleSheet.create({
   },
   buttonsInteractIconsSecond: {
     width: 60,
-    height: 60
-  }
+    height: 60
+  }
 });

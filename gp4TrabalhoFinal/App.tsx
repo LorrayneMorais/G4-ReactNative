@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from './src/navigation/types';
 import { Home } from './src/screens/home';
 import { Tarefas } from './src/screens/tarefas';
-import ListaCompromissos from './src/screens/compromissos/ListaCompromisso';
+import ListaCompromissos from './src/screens/compromissos/Compromisso';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
