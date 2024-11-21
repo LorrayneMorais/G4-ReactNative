@@ -11,6 +11,7 @@ import { Tarefas } from './src/screens/tarefas';
 
 import ListaCompromissos from './src/screens/compromissos/Compromisso';
 import { MyTabs } from './src/routes/MyTabs/MyTabs';
+import Login from './src/screens/Login';
 
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -34,6 +35,10 @@ export default function App() {
         <Stack.Screen
           name="ListaCompromisso"
           component={ListaCompromissos}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
         />
       </Stack.Navigator>
     </NavigationContainer>
