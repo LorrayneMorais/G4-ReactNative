@@ -37,7 +37,7 @@ const Login = () => {
       setErrorMessage("E-mail ou senha incorretos.");
     }
   };
-
+  
   return (
     <View style={styles.container}>
       <ImageBackground source={logo} style={styles.logo} resizeMode="cover">
@@ -82,5 +82,7 @@ const Login = () => {
     </View>
   );
 };
+
+
 
 export default Login;
