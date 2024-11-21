@@ -8,25 +8,38 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor: "#f0f2f5",
     },
-    form: {
-      width: "90%",
-      maxWidth: 400,
-      padding: 20,
-      backgroundColor: "#fff",
-      borderRadius: 8,
-      shadowColor: "#000",
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.2,
-      shadowRadius: 3,
-      elevation: 5,
+
+    logo : {
+    width:'100%',
+    height:'100%',
     },
-    title: {
-      fontSize: 24,
-      fontWeight: "bold",
-      textAlign: "center",
-      marginBottom: 20,
+
+    icone: {
+      alignItems: 'center',
+      marginTop: 30,
+    },
+
+    iconeImage: {
+      width:300,
+      height:300,
+    },
+
+    logoContainer : {
+      width:'100%',
+      height:'100%',
+      alignItems: 'center',
+      marginTop: 50,
+    },
+
+    virtualPet: {
+      alignItems: 'center',
+      marginTop: 50,
+    },
+
+    virtualPetImage: {
+      width: 413,
+      height: 100,
     },
     error: {
       color: "red",
@@ -35,7 +48,11 @@ const styles = StyleSheet.create({
     },
     field: {
       marginBottom: 15,
+      width: '70%',
     },
+
+
+    
     label: {
       marginBottom: 5,
       fontWeight: "bold",
@@ -46,18 +63,19 @@ const styles = StyleSheet.create({
       padding: 10,
       borderWidth: 1,
       borderColor: "#ddd",
-      borderRadius: 5,
+      borderRadius: 10,
       backgroundColor: "#fff",
     },
     button: {
-      backgroundColor: "#007bff",
+      backgroundColor: "#FF69B4",
       padding: 10,
-      borderRadius: 5,
+      borderRadius: 8,
       alignItems: "center",
+      width: 90,
     },
     buttonText: {
       color: "#fff",
-      fontSize: 16,
+      fontSize: 18,
       fontWeight: "bold",
     },
   });

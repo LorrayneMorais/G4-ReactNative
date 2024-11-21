@@ -1,11 +1,17 @@
+/*
+ *   Copyright (c) 2024 
+ *   All rights reserved.
+ */
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from './src/routes/navigation/types';
 import { Home } from './src/screens/home';
 import { Tarefas } from './src/screens/tarefas';
+
 import ListaCompromissos from './src/screens/compromissos/Compromisso';
 import { MyTabs } from './src/routes/MyTabs/MyTabs';
+
 
 const Stack = createStackNavigator<RootStackParamList>();
 
