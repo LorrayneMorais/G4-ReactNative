@@ -11,19 +11,19 @@ export const styles = StyleSheet.create({
   topPag: {
     // borderWidth: 1,
     width: "100%",
-    height: 85,
+    height: 100,
     alignItems: "center",
     // marginBottom: 5
   },
   topPagContent: {
     borderColor: "black",
     // borderWidth: 1,
-    borderLeftWidth: 6,
-    borderRightWidth: 6,
-    borderBottomWidth: 6,
+    // borderLeftWidth: 6,
+    // borderRightWidth: 6,
+    // borderBottomWidth: 6,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
-    paddingTop: 10,
+    paddingTop: 1,
     paddingBottom: 16,
     paddingHorizontal: 35,
   },
@@ -31,9 +31,9 @@ export const styles = StyleSheet.create({
     width: 230,
     height: 65,
     shadowColor: '#fff',  // Cor da sombra
-    shadowOffset: { width: 0, height: 3 },  // Distância da sombra
-    shadowOpacity: 1,  // Opacidade da sombra
-    shadowRadius: 5,  // Desfoque da sombra
+    shadowOffset: { width: 0, height: 0 },  // Distância da sombra
+    shadowOpacity: 0.7,  // Opacidade da sombra
+    shadowRadius: 3,  // Desfoque da sombra
   },
   topPagBarsFoodAndWater: {
     alignItems: "center",
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     // borderWidth: 1,
     height: 30,
-    marginTop: 30
+    marginTop: 10
   },
   topPagBarsFood: {
     flexDirection: "row",
@@ -141,7 +141,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   containerPetMain: {
-    borderWidth: 9,
+    borderWidth: 20,
+    borderColor: '#FFC1D8',
     borderRadius: 300,
     width: 330,
     height: 330,
@@ -149,7 +150,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     overflow: 'hidden',
     shadowColor: 'black',
-    shadowOpacity: 1,
+    shadowOpacity: 0.6,
     shadowRadius: 22,
   },
   sunGifMode: {
@@ -298,8 +299,8 @@ export const styles = StyleSheet.create({
     resizeMode: "cover"
   },
   buttonsBordersExercicio: {
-    width: 200,
-    height: 200,
+    width: 195,
+    height: 195,
     resizeMode: "cover"
   },
   buttonsInteractIcons: {

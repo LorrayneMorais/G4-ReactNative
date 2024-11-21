@@ -11,6 +11,7 @@ import buttonFood from '../../../assets/buttonFoodIcon.png'
 import buttonWater from '../../../assets/sem.png'
 import nubladopng from '../../../assets/nubladopng.png'
 import backgroundPet from '../../../assets/backgroundPet.png'
+import backgroundLogopngwhite from '../../../assets/backgroundLogopngbege.png'
 import { useEffect, useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../routes/navigation/types";
@@ -181,11 +182,11 @@ export const Home = () => {
         </View>
       )} */}
       <ImageBackground source={backgroundImag} style={styles.backgroundImage} resizeMode="cover">
-        <View style={styles.topPag}>
+        <ImageBackground source={backgroundLogopngwhite} style={styles.topPag}>
           <View style={styles.topPagContent}>
               <Image source={virtualPet} style={styles.topPagContentText}></Image>
           </View>
-        </View>
+        </ImageBackground>
         <View style={styles.topPagBarsFoodAndWater}>
           <View style={styles.topPagBarsFood}>
             <View style={[styles.topPagBarsFoodBlockOne, { backgroundColor: hungerLevel >= 1 ? "orange" : "white" }]}/>
@@ -194,10 +195,10 @@ export const Home = () => {
             <View style={[styles.topPagBarsFoodBlockFour,{ backgroundColor: hungerLevel >= 4 ? "orange" : "white" }]}/>
           </View>
           <View style={styles.topPagBarsWater}>
-            <View style={[styles.topPagBarsWaterBlockOne, {backgroundColor: waterLevel >= 4 ? "#1CD4E9" : "white "}]} />
-            <View style={[styles.topPagBarsWaterBlockTwo, {backgroundColor: waterLevel >= 3 ? "#1CD4E9" : "white "}]} />
-            <View style={[styles.topPagBarsWaterBlockThree, {backgroundColor: waterLevel >= 2 ? "#1CD4E9" : "white "}]} />
-            <View style={[styles.topPagBarsWaterBlockFour, {backgroundColor: waterLevel >= 1 ? "#1CD4E9" : "white "}]} />
+            <View style={[styles.topPagBarsWaterBlockOne, {backgroundColor: waterLevel >= 4 ? "#1CD4E9" : "white"}]}/>
+            <View style={[styles.topPagBarsWaterBlockTwo, {backgroundColor: waterLevel >= 3 ? "#1CD4E9" : "white"}]}/>
+            <View style={[styles.topPagBarsWaterBlockThree, {backgroundColor: waterLevel >= 2 ? "#1CD4E9" : "white"}]}/>
+            <View style={[styles.topPagBarsWaterBlockFour, {backgroundColor: waterLevel >= 1 ? "#1CD4E9" : "white"}]}/>
           </View>
         </View>
         <View style={styles.date}>
