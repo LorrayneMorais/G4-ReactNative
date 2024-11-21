@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../routes/navigation/types";
 import { useNavigation } from "@react-navigation/native";
+import { PetWeatherComponent } from "../../components/PetWeatherComponent/PetWeatherComponent";
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
 
@@ -19,7 +20,7 @@ export const Home = () => {
   const [gifSource, setGifSource] = useState(require('../../../assets/gifs/gifNormalbdNew.gif'));
   const [gifStyles, setGifStyles] = useState(styles.gif);
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  const [weatherData, setWeatherData] = useState<WeatherData[] | null>(null);;
+  const [weatherData, setWeatherData] = useState<WeatherData[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [isSunny, setIsSunny] = useState(false);
@@ -144,32 +145,8 @@ export const Home = () => {
     setIsNub(nubCondition);
   };
 
-  // Função para carregar as fontes
-  // const loadFonts = async () => {
-  //   await Font.loadAsync({
-  //     'Doto': require('./assets/fonts/Doto.ttf'), // Caminho para sua fonte
-  //   });
-  //   setFontsLoaded(true);
-  // };
-
-  // if (!fontsLoaded) {
-  //   loadFonts();
-  //   return null;  // Exibe nada enquanto a fonte está carregando
-  // }
-
   return (
     <View style={styles.container}>
-      {/* <Button title="Obter Clima" onPress={fetchWeather} />
-      
-      {loading && <Text>Carregando...</Text>}
-      {error && <Text>{error}</Text>}
-      
-      {weatherData && (
-        <View>
-          <Text>Condições climáticas:</Text>
-          <Text>{extractWeatherKeywords(weatherData[0]?.text || '').join(', ')}</Text>
-        </View>
-      )} */}
       <ImageBackground source={images.backgroundImag} style={styles.backgroundImage} resizeMode="cover">
         <ImageBackground source={images.backgroundLogopngwhite} style={styles.topPag}>
           <View style={styles.topPagContent}>
@@ -196,37 +173,14 @@ export const Home = () => {
           </View>
         </View>
         <View style={styles.containerPet}>
-          <ImageBackground source={images.backgroundPet} style={styles.containerPetMain}>
-            <Image source={gifSource} style={gifStyles} resizeMode="contain"/>
-            {isSunny && (
-            <Image
-            source={require('../../../assets/gifs/sunGifPet.gif')}
-            style={styles.sunGifMode} 
-            resizeMode="contain"
-            />
-            )}
-            {isRainy && (
-            <Image
-              source={require('../../../assets/gifs/rainGifPet.gif')}
-              style={styles.rainGifMode} 
-              resizeMode="contain"
-            />
-            )}
-            {isCloud && (
-            <Image
-              source={require('../../../assets/gifs/nuvemgif.gif')}
-              style={styles.cloudGifMode} 
-              resizeMode="contain"
-            />
-            )}
-            {isNub && (
-            <Image
-              source={images.nubladopng}
-              style={styles.cloudGifMode} 
-              resizeMode="contain"
-            />
-            )}
-          </ImageBackground>
+          <PetWeatherComponent
+            gifSource={gifSource}
+            gifStyles={gifStyles}
+            isSunny={isSunny}
+            isRainy={isRainy}
+            isCloud={isCloud}
+            isNub={isNub}
+          />
         </View>
         <View style={styles.iconFoodAndWater}>
           <TouchableOpacity style={styles.iconFood} onPress={increaseHunger}>
