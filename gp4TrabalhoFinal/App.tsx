@@ -5,6 +5,8 @@ import { RootStackParamList } from './src/navigation/types';
 import { Home } from './src/screens/home';
 import { Tarefas } from './src/screens/tarefas';
 import ListaCompromissos from './src/screens/compromissos/ListaCompromisso';
+import Login from './src/screens/Login';
+
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -15,6 +17,7 @@ export default function App() {
         <Stack.Screen options={{ headerShown: false }} name='Home' component={Home} />
         <Stack.Screen options={{ headerShown: false }} name='Tarefas' component={Tarefas} />
         <Stack.Screen options={{ headerShown: false }} name='ListaCompromisso' component={ListaCompromissos} />
+        <Stack.Screen options={{ headerShown: false }} name='Login' component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );

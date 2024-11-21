@@ -3,10 +3,16 @@
  *   All rights reserved.
  */
 import React, { useState } from "react";
-import {StyleSheet,View, Text, TextInput, TouchableOpacity, Alert} from "react-native";
+import {StyleSheet,View, Text, TextInput, TouchableOpacity, Alert, ImageBackground, Image} from "react-native";
 import styles from './styles'
+import logo from '../../../assets/Trabalho.png'
+import icone from '../../../assets/icone.png'
+import virtualPet from '../../../assets/virtualPet.png'
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../navigation/types";
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Login">;
 
-const LoginPage: React.FC = () => {
+const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -34,13 +40,20 @@ const LoginPage: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.form}>
-        <Text style={styles.title}>Login</Text>
+      <ImageBackground source={logo} style={styles.logo} resizeMode="cover">
+        <View style={styles.icone}>
+          <Image source={icone} style={styles.iconeImage}/>
+        </View>
+        <View style={styles.virtualPet}>
+          <Image source={virtualPet} style={styles.virtualPetImage}/>
+        </View>
+    <View style={styles.logoContainer}>
+
 
         {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
 
         <View style={styles.field}>
-          <Text style={styles.label}>E-mail</Text>
+
           <TextInput
             style={styles.input}
             placeholder="Digite seu e-mail"
@@ -51,7 +64,7 @@ const LoginPage: React.FC = () => {
         </View>
 
         <View style={styles.field}>
-          <Text style={styles.label}>Senha</Text>
+
           <TextInput
             style={styles.input}
             placeholder="Digite sua senha"
@@ -65,8 +78,9 @@ const LoginPage: React.FC = () => {
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
       </View>
+      </ImageBackground>
     </View>
   );
 };
 
-export default LoginPage;
+export default Login;
