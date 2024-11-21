@@ -9,8 +9,8 @@ import logo from '../../../assets/Trabalho.png'
 import icone from '../../../assets/icone.png'
 import virtualPet from '../../../assets/virtualPet.png'
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation/types";
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Login">;
+import { RootStackParamList } from "../../routes/navigation/types";
+//type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Login">;
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");

@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   backgroundImage: {
     width: "100%",
@@ -11,19 +11,19 @@ export const styles = StyleSheet.create({
   topPag: {
     // borderWidth: 1,
     width: "100%",
-    height: 85,
+    height: 100,
     alignItems: "center",
     // marginBottom: 5
   },
   topPagContent: {
     borderColor: "black",
     // borderWidth: 1,
-    borderLeftWidth: 6,
-    borderRightWidth: 6,
-    borderBottomWidth: 6,
+    // borderLeftWidth: 6,
+    // borderRightWidth: 6,
+    // borderBottomWidth: 6,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
-    paddingTop: 10,
+    paddingTop: 1,
     paddingBottom: 16,
     paddingHorizontal: 35,
   },
@@ -31,9 +31,9 @@ export const styles = StyleSheet.create({
     width: 230,
     height: 65,
     shadowColor: '#fff',  // Cor da sombra
-    shadowOffset: { width: 0, height: 3 },  // Distância da sombra
-    shadowOpacity: 1,  // Opacidade da sombra
-    shadowRadius: 5,  // Desfoque da sombra
+    shadowOffset: { width: 0, height: 0 },  // Distância da sombra
+    shadowOpacity: 0.7,  // Opacidade da sombra
+    shadowRadius: 3,  // Desfoque da sombra
   },
   topPagBarsFoodAndWater: {
     alignItems: "center",
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     // borderWidth: 1,
     height: 30,
-    marginTop: 30
+    marginTop: 10
   },
   topPagBarsFood: {
     flexDirection: "row",
@@ -140,41 +140,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  containerPetMain: {
-    borderWidth: 9,
-    backgroundColor: '#80EDD4',
-    borderRadius: 300,
-    width: 330,
-    height: 330,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    shadowColor: 'black',
-    shadowOpacity: 1,
-    shadowRadius: 22,
-  },
-  sunGifMode: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    width: 150,
-    height: 150,
-    zIndex: -1
-  },
-  rainGifMode: {
-    position: 'absolute',
-    width: 350,
-    height: 350,
-    zIndex: -1
-  },
-  cloudGifMode: {
-    position: 'absolute',
-    top: -10,
-    left: -20,
-    width: 320,
-    height: 320,
-    zIndex: -1
-  },
   gif: {
     width: 250,
     height: 250,
@@ -182,7 +147,7 @@ export const styles = StyleSheet.create({
   },
   gifMudanca: {
     width: 335,
-    height: 335 ,
+    height: 335,
     resizeMode: "contain",
   },
   iconFoodAndWater: {
@@ -279,7 +244,7 @@ export const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 10, // Difusão da sombra
   },
-  buttonsBordersCalendar:{
+  buttonsBordersCalendar: {
     width: 160,
     height: 160,
     resizeMode: "cover"
@@ -300,8 +265,8 @@ export const styles = StyleSheet.create({
     resizeMode: "cover"
   },
   buttonsBordersExercicio: {
-    width: 200,
-    height: 200,
+    width: 195,
+    height: 195,
     resizeMode: "cover"
   },
   buttonsInteractIcons: {
@@ -310,6 +275,6 @@ export const styles = StyleSheet.create({
   },
   buttonsInteractIconsSecond: {
     width: 60,
-    height: 60
-  }
+    height: 60
+  }
 });

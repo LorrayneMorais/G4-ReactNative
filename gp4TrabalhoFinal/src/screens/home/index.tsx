@@ -1,18 +1,11 @@
 import { Button, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
-import backgroundImag from "../../../assets/background.png";
-import botaoHeartCoracao from '../../../assets/botaoHeartCoracao.png'
-import buttonMoonIconLua from '../../../assets/buttonMoonIconLua.png'
-import botaoHalter from '../../../assets/botaoHalter.png'
-import tarefasIconTar from '../../../assets/tarefasIconTar.png'
-import calendarioIconCalendar from '../../../assets/calendarioIconCalendar.png'
-import virtualPet from '../../../assets/virtualPet.png'
-import buttonFood from '../../../assets/buttonFoodIcon.png'
-import buttonWater from '../../../assets/sem.png'
+import images from "../../components/Images";
 import { useEffect, useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation/types";
+import { RootStackParamList } from "../../routes/navigation/types";
 import { useNavigation } from "@react-navigation/native";
+import { PetWeatherComponent } from "../../components/PetWeatherComponent/PetWeatherComponent";
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
 
@@ -27,7 +20,7 @@ export const Home = () => {
   const [gifSource, setGifSource] = useState(require('../../../assets/gifs/gifNormalbdNew.gif'));
   const [gifStyles, setGifStyles] = useState(styles.gif);
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  const [weatherData, setWeatherData] = useState<WeatherData[] | null>(null);;
+  const [weatherData, setWeatherData] = useState<WeatherData[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [isSunny, setIsSunny] = useState(false);
@@ -149,42 +142,17 @@ export const Home = () => {
     setIsSunny(sunnyCondition);
     setIsRainy(rainyCondition);
     setIsCloud(cloudCondition);
-    setIsCloud(cloudCondition);
     setIsNub(nubCondition);
   };
 
-  // Função para carregar as fontes
-  // const loadFonts = async () => {
-  //   await Font.loadAsync({
-  //     'Doto': require('./assets/fonts/Doto.ttf'), // Caminho para sua fonte
-  //   });
-  //   setFontsLoaded(true);
-  // };
-
-  // if (!fontsLoaded) {
-  //   loadFonts();
-  //   return null;  // Exibe nada enquanto a fonte está carregando
-  // }
-
   return (
     <View style={styles.container}>
-      {/* <Button title="Obter Clima" onPress={fetchWeather} />
-      
-      {loading && <Text>Carregando...</Text>}
-      {error && <Text>{error}</Text>}
-      
-      {weatherData && (
-        <View>
-          <Text>Condições climáticas:</Text>
-          <Text>{extractWeatherKeywords(weatherData[0]?.text || '').join(', ')}</Text>
-        </View>
-      )} */}
-      <ImageBackground source={backgroundImag} style={styles.backgroundImage} resizeMode="cover">
-        <View style={styles.topPag}>
+      <ImageBackground source={images.backgroundImag} style={styles.backgroundImage} resizeMode="cover">
+        <ImageBackground source={images.backgroundLogopngwhite} style={styles.topPag}>
           <View style={styles.topPagContent}>
-              <Image source={virtualPet} style={styles.topPagContentText}></Image>
+              <Image source={images.virtualPet} style={styles.topPagContentText}></Image>
           </View>
-        </View>
+        </ImageBackground>
         <View style={styles.topPagBarsFoodAndWater}>
           <View style={styles.topPagBarsFood}>
             <View style={[styles.topPagBarsFoodBlockOne, { backgroundColor: hungerLevel >= 1 ? "orange" : "white" }]}/>
@@ -193,10 +161,10 @@ export const Home = () => {
             <View style={[styles.topPagBarsFoodBlockFour,{ backgroundColor: hungerLevel >= 4 ? "orange" : "white" }]}/>
           </View>
           <View style={styles.topPagBarsWater}>
-            <View style={[styles.topPagBarsWaterBlockOne, {backgroundColor: waterLevel >= 4 ? "#1CD4E9" : "white "}]} />
-            <View style={[styles.topPagBarsWaterBlockTwo, {backgroundColor: waterLevel >= 3 ? "#1CD4E9" : "white "}]} />
-            <View style={[styles.topPagBarsWaterBlockThree, {backgroundColor: waterLevel >= 2 ? "#1CD4E9" : "white "}]} />
-            <View style={[styles.topPagBarsWaterBlockFour, {backgroundColor: waterLevel >= 1 ? "#1CD4E9" : "white "}]} />
+            <View style={[styles.topPagBarsWaterBlockOne, {backgroundColor: waterLevel >= 4 ? "#1CD4E9" : "white"}]}/>
+            <View style={[styles.topPagBarsWaterBlockTwo, {backgroundColor: waterLevel >= 3 ? "#1CD4E9" : "white"}]}/>
+            <View style={[styles.topPagBarsWaterBlockThree, {backgroundColor: waterLevel >= 2 ? "#1CD4E9" : "white"}]}/>
+            <View style={[styles.topPagBarsWaterBlockFour, {backgroundColor: waterLevel >= 1 ? "#1CD4E9" : "white"}]}/>
           </View>
         </View>
         <View style={styles.date}>
@@ -205,52 +173,29 @@ export const Home = () => {
           </View>
         </View>
         <View style={styles.containerPet}>
-          <View style={styles.containerPetMain}>
-            <Image source={gifSource} style={gifStyles} resizeMode="contain"/>
-            {isSunny && (
-            <Image
-            source={require('../../../assets/gifs/sunGifPet.gif')}
-            style={styles.sunGifMode} 
-            resizeMode="contain"
-            />
-            )}
-            {isRainy && (
-            <Image
-              source={require('../../../assets/gifs/rainGifPet.gif')}
-              style={styles.rainGifMode} 
-              resizeMode="contain"
-            />
-            )}
-            {isCloud && (
-            <Image
-              source={require('../../../assets/gifs/cloudpetGiff.gif')}
-              style={styles.cloudGifMode} 
-              resizeMode="contain"
-            />
-            )}
-            {isNub && (
-            <Image
-              source={require('../../../assets/gifs/cloudpetGiff.gif')}
-              style={styles.cloudGifMode} 
-              resizeMode="contain"
-            />
-            )}
-          </View>
+          <PetWeatherComponent
+            gifSource={gifSource}
+            gifStyles={gifStyles}
+            isSunny={isSunny}
+            isRainy={isRainy}
+            isCloud={isCloud}
+            isNub={isNub}
+          />
         </View>
         <View style={styles.iconFoodAndWater}>
           <TouchableOpacity style={styles.iconFood} onPress={increaseHunger}>
-            <Image source={buttonFood} style={styles.iconFoodImage}/>
+            <Image source={images.buttonFood} style={styles.iconFoodImage}/>
           </TouchableOpacity>
           <TouchableOpacity style={styles.iconWater} onPress={increaseWater}>
-            <Image source={buttonWater} style={styles.iconWaterImage}/>
+            <Image source={images.buttonWater} style={styles.iconWaterImage}/>
           </TouchableOpacity>
         </View>
         <View style={styles.buttonsInteract}>
-          <TouchableOpacity style={styles.buttonsInteractOne} onPress={navigationCalendar}><Image source={calendarioIconCalendar} style={styles.buttonsBordersCalendar}></Image></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractTwo} onPress={handleGifCarinho}><Image source={botaoHeartCoracao} style={styles.buttonsBordersHeart}></Image></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractThree} onPress={navigationTarefas}><Image source={tarefasIconTar} style={styles.buttonsBordersTarefas}></Image ></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifDormir}><Image source={buttonMoonIconLua} style={styles.buttonsBordersMoon}></Image></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifCorrer}><Image source={botaoHalter} style={styles.buttonsBordersExercicio}></Image ></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractOne} onPress={navigationCalendar}><Image source={images.calendarioIconCalendar} style={styles.buttonsBordersCalendar}></Image></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractTwo} onPress={handleGifCarinho}><Image source={images.botaoHeartCoracao} style={styles.buttonsBordersHeart}></Image></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractThree} onPress={navigationTarefas}><Image source={images.tarefasIconTar} style={styles.buttonsBordersTarefas}></Image ></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifDormir}><Image source={images.buttonMoonIconLua} style={styles.buttonsBordersMoon}></Image></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifCorrer}><Image source={images.botaoHalter} style={styles.buttonsBordersExercicio}></Image ></TouchableOpacity>
         </View>
       </ImageBackground>
     </View>

@@ -1,113 +1,78 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    // Estilos do container principal
     container: {
         flex: 1,
         padding: 10,
-        backgroundColor: "#f5f5f5",
+        backgroundColor: '#fff',
     },
-
     gif: {
-        width: 250,
-        height: 250,
-        resizeMode: 'contain'
+        width: 200,
+        height: 200,
+        alignSelf: 'center',
+        resizeMode: 'contain',
     },
-
-    // Cabeçalho do calendário
-    header: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: 10,
-        backgroundColor: "#ffffff",
-        borderRadius: 8,
-        marginBottom: 10,
-        elevation: 2,
-    },
-    headerText: {
-        fontSize: 18,
-        fontWeight: "bold",
-        color: "#333",
-    },
-    navText: {
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "#007AFF",
-    },
-    // Dias da semana
-    weekDays: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        marginBottom: 5,
-    },
-    weekDayText: {
-        flex: 1,
-        textAlign: "center",
-        fontSize: 14,
-        fontWeight: "bold",
-        color: "#666",
-    },
-    // Dias do mês
-    daysContainer: {
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "space-between",
-    },
-    day: {
-        width: "13%",
-        height: 40,
-        justifyContent: "center",
-        alignItems: "center",
-        marginVertical: 5,
-    },
-    dayText: {
-        fontSize: 16,
-        color: "#333",
-    },
-    // Estilos para compromissos
     compromissoItem: {
-        backgroundColor: "#ffffff",
-        padding: 15,
+        backgroundColor: '#f4f4f4',
+        padding: 10,
         marginVertical: 5,
-        borderRadius: 8,
-        elevation: 2,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
+        borderRadius: 5,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    compromissoAnimado: {
+        marginTop: 20,
+        alignSelf: 'center',
+    },
+    modalContainer: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+    },
+    input: {
+        width: 250,
+        height: 40,
+        backgroundColor: '#fff',
+        borderColor: '#ccc',
+        borderWidth: 1,
+        marginBottom: 10,
+        paddingHorizontal: 10,
+        borderRadius: 5,
     },
     botaoAdicionar: {
-        position: "absolute",
+        position: 'absolute',
         bottom: 20,
         right: 20,
-        width: 60,
-        height: 60,
-        backgroundColor: "#007AFF",
-        borderRadius: 30,
-        justifyContent: "center",
-        alignItems: "center",
-        elevation: 4,
+        backgroundColor: 'pink',
+        padding: 15,
+        borderRadius: 50,
     },
     icon: {
         fontSize: 30,
-        color: "#ffffff",
-        fontWeight: "bold",
+        color: '#fff',
     },
-    // Modal para adicionar compromisso
-    modalContainer: {
-        position: "absolute",
-        top: "30%",
-        left: "10%",
-        right: "10%",
-        backgroundColor: "#ffffff",
-        padding: 20,
-        borderRadius: 8,
-        elevation: 4,
+    calendar: {
+        marginVertical: 20,
     },
-    input: {
-        borderBottomWidth: 1,
-        borderBottomColor: "#ccc",
+    compromissosContainer: {  // Adicionando este estilo
+        flex: 1,
+        padding: 10,
+    },
+    title: {
+        fontSize: 18,
+        fontWeight: 'bold',
         marginBottom: 10,
-        padding: 5,
+    },
+    noCompromissos: {
+        textAlign: 'center',
+        fontSize: 16,
+        color: '#888',
     },
 });
