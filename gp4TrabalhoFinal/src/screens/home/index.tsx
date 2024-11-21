@@ -1,17 +1,6 @@
 import { Button, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
-import backgroundImag from "../../../assets/background.png";
-import botaoHeartCoracao from '../../../assets/botaoHeartCoracao.png'
-import buttonMoonIconLua from '../../../assets/buttonMoonIconLua.png'
-import botaoHalter from '../../../assets/botaoHalter.png'
-import tarefasIconTar from '../../../assets/tarefasIconTar.png'
-import calendarioIconCalendar from '../../../assets/calendarioIconCalendar.png'
-import virtualPet from '../../../assets/virtualPet.png'
-import buttonFood from '../../../assets/buttonFoodIcon.png'
-import buttonWater from '../../../assets/sem.png'
-import nubladopng from '../../../assets/nubladopng.png'
-import backgroundPet from '../../../assets/backgroundPet.png'
-import backgroundLogopngwhite from '../../../assets/backgroundLogopngbege.png'
+import images from "../../components/Images";
 import { useEffect, useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../routes/navigation/types";
@@ -181,10 +170,10 @@ export const Home = () => {
           <Text>{extractWeatherKeywords(weatherData[0]?.text || '').join(', ')}</Text>
         </View>
       )} */}
-      <ImageBackground source={backgroundImag} style={styles.backgroundImage} resizeMode="cover">
-        <ImageBackground source={backgroundLogopngwhite} style={styles.topPag}>
+      <ImageBackground source={images.backgroundImag} style={styles.backgroundImage} resizeMode="cover">
+        <ImageBackground source={images.backgroundLogopngwhite} style={styles.topPag}>
           <View style={styles.topPagContent}>
-              <Image source={virtualPet} style={styles.topPagContentText}></Image>
+              <Image source={images.virtualPet} style={styles.topPagContentText}></Image>
           </View>
         </ImageBackground>
         <View style={styles.topPagBarsFoodAndWater}>
@@ -207,7 +196,7 @@ export const Home = () => {
           </View>
         </View>
         <View style={styles.containerPet}>
-          <ImageBackground source={backgroundPet} style={styles.containerPetMain}>
+          <ImageBackground source={images.backgroundPet} style={styles.containerPetMain}>
             <Image source={gifSource} style={gifStyles} resizeMode="contain"/>
             {isSunny && (
             <Image
@@ -232,7 +221,7 @@ export const Home = () => {
             )}
             {isNub && (
             <Image
-              source={nubladopng}
+              source={images.nubladopng}
               style={styles.cloudGifMode} 
               resizeMode="contain"
             />
@@ -241,18 +230,18 @@ export const Home = () => {
         </View>
         <View style={styles.iconFoodAndWater}>
           <TouchableOpacity style={styles.iconFood} onPress={increaseHunger}>
-            <Image source={buttonFood} style={styles.iconFoodImage}/>
+            <Image source={images.buttonFood} style={styles.iconFoodImage}/>
           </TouchableOpacity>
           <TouchableOpacity style={styles.iconWater} onPress={increaseWater}>
-            <Image source={buttonWater} style={styles.iconWaterImage}/>
+            <Image source={images.buttonWater} style={styles.iconWaterImage}/>
           </TouchableOpacity>
         </View>
         <View style={styles.buttonsInteract}>
-          <TouchableOpacity style={styles.buttonsInteractOne} onPress={navigationCalendar}><Image source={calendarioIconCalendar} style={styles.buttonsBordersCalendar}></Image></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractTwo} onPress={handleGifCarinho}><Image source={botaoHeartCoracao} style={styles.buttonsBordersHeart}></Image></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractThree} onPress={navigationTarefas}><Image source={tarefasIconTar} style={styles.buttonsBordersTarefas}></Image ></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifDormir}><Image source={buttonMoonIconLua} style={styles.buttonsBordersMoon}></Image></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifCorrer}><Image source={botaoHalter} style={styles.buttonsBordersExercicio}></Image ></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractOne} onPress={navigationCalendar}><Image source={images.calendarioIconCalendar} style={styles.buttonsBordersCalendar}></Image></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractTwo} onPress={handleGifCarinho}><Image source={images.botaoHeartCoracao} style={styles.buttonsBordersHeart}></Image></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractThree} onPress={navigationTarefas}><Image source={images.tarefasIconTar} style={styles.buttonsBordersTarefas}></Image ></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifDormir}><Image source={images.buttonMoonIconLua} style={styles.buttonsBordersMoon}></Image></TouchableOpacity>
+          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifCorrer}><Image source={images.botaoHalter} style={styles.buttonsBordersExercicio}></Image ></TouchableOpacity>
         </View>
       </ImageBackground>
     </View>
