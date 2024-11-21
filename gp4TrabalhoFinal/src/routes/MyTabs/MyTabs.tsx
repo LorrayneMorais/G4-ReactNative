@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 
+ *   All rights reserved.
+ */
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Home } from '../../screens/home';
 import { Tarefas } from '../../screens/tarefas';
