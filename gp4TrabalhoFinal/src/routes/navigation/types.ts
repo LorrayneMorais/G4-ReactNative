@@ -8,7 +8,6 @@ export type RootStackParamList = {
   Tarefas: undefined;  // Outra página, sem parâmetros
   ListaCompromisso: undefined;
   Login: undefined;
-
   MyTabs: undefined
 
 };

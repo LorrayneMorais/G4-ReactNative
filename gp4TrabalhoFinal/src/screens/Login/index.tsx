@@ -3,41 +3,57 @@
  *   All rights reserved.
  */
 import React, { useState } from "react";
-import {StyleSheet,View, Text, TextInput, TouchableOpacity, Alert, ImageBackground, Image} from "react-native";
+import {StyleSheet,View, Text, TextInput, TouchableOpacity, Alert, ImageBackground, Image, GestureResponderEvent} from "react-native";
 import styles from './styles'
 import logo from '../../../assets/Trabalho.png'
 import icone from '../../../assets/icone.png'
 import virtualPet from '../../../assets/virtualPet.png'
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../routes/navigation/types";
+import { api } from "../../api/api";
+import { useNavigation } from "@react-navigation/native";
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Login">;
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const [sucessMessage, setSucessMessage] = useState<string>("");
+  const navigation = useNavigation<HomeScreenNavigationProp>()
+  
+  const handleLogin = async (e: GestureResponderEvent) => {
+    e.preventDefault();
+    try {
+      const response = await api.get('/Users',{
+        params:{email: email, password: password},
+      });
+      console.log('response:',response);
 
-  // Dados locais para autenticação
-  const validEmail = "admin@example.com";
-  const validPassword = "123456";
-
-  const handleLogin = () => {
-    // Validação simples
-    if (!email || !password) {
-    setErrorMessage("Por favor, preencha todos os campos.");
-    return;
+    if (response.status === 200) {
+      if (response.data.length=== 1){
+        const user = response.data[0];
+        if (user.email===email&& user.senha===password){
+          setSucessMessage('Usuário logado com sucesso');
+          console.log('Usuário logado com sucesso')
+          setTimeout(()=>{
+            navigation.navigate('MyTabs')
+          },1000)
+        }else{
+          setSucessMessage ('Email ou senha incorretos')
+        }
+      }else{
+        setSucessMessage ('Email ou senha incorretos')
+    }
+    }else{
+      setErrorMessage('Erro ao logar');
     }
 
-    setErrorMessage("");
-
-    // Verificando credenciais locais
-    if (email === validEmail && password === validPassword) {
-      Alert.alert("Login bem-sucedido!", "Bem-vindo ao aplicativo.");
-    } else {
-      setErrorMessage("E-mail ou senha incorretos.");
-    }
-  };
-
+    
+  }catch(error){
+    console.error('Erro ao fazer o login', error);
+    setSucessMessage('Erro ao fazer o login');
+  }
+  }
   return (
     <View style={styles.container}>
       <ImageBackground source={logo} style={styles.logo} resizeMode="cover">
