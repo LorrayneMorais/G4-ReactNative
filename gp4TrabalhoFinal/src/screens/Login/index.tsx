@@ -48,12 +48,14 @@ const Login = () => {
       setErrorMessage('Erro ao logar');
     }
 
+  
     
   }catch(error){
     console.error('Erro ao fazer o login', error);
     setSucessMessage('Erro ao fazer o login');
   }
   }
+
   return (
     <View style={styles.container}>
       <ImageBackground source={logo} style={styles.logo} resizeMode="cover">
@@ -98,5 +100,7 @@ const Login = () => {
     </View>
   );
 };
+
+
 
 export default Login;
