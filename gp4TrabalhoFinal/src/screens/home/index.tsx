@@ -6,6 +6,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../routes/navigation/types";
 import { useNavigation } from "@react-navigation/native";
 import { PetWeatherComponent } from "../../components/PetWeatherComponent/PetWeatherComponent";
+import { useAuth } from "../../context";
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
 
@@ -27,6 +28,7 @@ export const Home = () => {
   const [isRainy, setIsRainy] = useState(false);
   const [isCloud, setIsCloud] = useState(false);
   const [isNub, setIsNub] = useState(false);
+  const { user, handleLogout } = useAuth();
   const today = new Date();
   const day = today.getDate()
   const apiKey = '8274cf4646fe3a0b32b447a00828a40f';
@@ -145,6 +147,10 @@ export const Home = () => {
     setIsNub(nubCondition);
   };
 
+  const handleSignout = () => {
+    handleLogout();
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground source={images.backgroundImag} style={styles.backgroundImage} resizeMode="cover">
@@ -197,6 +203,7 @@ export const Home = () => {
           <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifDormir}><Image source={images.buttonMoonIconLua} style={styles.buttonsBordersMoon}></Image></TouchableOpacity>
           <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifCorrer}><Image source={images.botaoHalter} style={styles.buttonsBordersExercicio}></Image ></TouchableOpacity>
         </View>
+        <Button title="Sair" onPress={handleSignout}/>
       </ImageBackground>
     </View>
   );
