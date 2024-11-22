@@ -20,7 +20,7 @@ export const Routes = () => {
 
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName={isAuthenticated?"Home": "Cadastro"} screenOptions={{ headerShown: false }}>
+            <Stack.Navigator initialRouteName={isAuthenticated? "Home": "Login"} screenOptions={{ headerShown: false }}>
             {isAuthenticated ? (
                 <>
                     <Stack.Screen
@@ -39,11 +39,9 @@ export const Routes = () => {
                         name="ListaCompromisso"
                         component={Compromisso}
                     />
-
-                    </>
+                </>
             ) : (
                 <>
-
                     <Stack.Screen
                         name="Login"
                         component={Login}
