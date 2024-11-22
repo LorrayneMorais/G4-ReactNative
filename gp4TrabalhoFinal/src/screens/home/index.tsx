@@ -221,7 +221,7 @@ export const Home = () => {
           <ButtonComponent
             onPress={handleGifCorrer}
             type="exercise"
-            style={styles.buttonsInteractFive}
+            style={styles.buttonsInteractFour}
           />
         </View>
         <Button title="Sair" onPress={handleSignout}/>
