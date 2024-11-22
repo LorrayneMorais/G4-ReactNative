@@ -7,6 +7,7 @@ import { RootStackParamList } from "../../routes/navigation/types";
 import { useNavigation } from "@react-navigation/native";
 import { PetWeatherComponent } from "../../components/PetWeatherComponent/PetWeatherComponent";
 import { ButtonComponent } from "../../components/ButtonsComponent/ButtonsComponent";
+import { useAuth } from "../../context";
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
 
@@ -28,6 +29,7 @@ export const Home = () => {
   const [isRainy, setIsRainy] = useState(false);
   const [isCloud, setIsCloud] = useState(false);
   const [isNub, setIsNub] = useState(false);
+  const { user, handleLogout } = useAuth();
   const today = new Date();
   const day = today.getDate()
   const apiKey = '8274cf4646fe3a0b32b447a00828a40f';
@@ -146,6 +148,10 @@ export const Home = () => {
     setIsNub(nubCondition);
   };
 
+  const handleSignout = () => {
+    handleLogout();
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground source={images.backgroundImag} style={styles.backgroundImage} resizeMode="cover">
@@ -156,10 +162,10 @@ export const Home = () => {
         </ImageBackground>
         <View style={styles.topPagBarsFoodAndWater}>
           <View style={styles.topPagBarsFood}>
-            <View style={[styles.topPagBarsFoodBlockOne, { backgroundColor: hungerLevel >= 1 ? "orange" : "white" }]} />
-            <View style={[styles.topPagBarsFoodBlockTwo, { backgroundColor: hungerLevel >= 2 ? "orange" : "white" }]} />
-            <View style={[styles.topPagBarsFoodBlockThree, { backgroundColor: hungerLevel >= 3 ? "orange" : "white" }]} />
-            <View style={[styles.topPagBarsFoodBlockFour, { backgroundColor: hungerLevel >= 4 ? "orange" : "white" }]} />
+            <View style={[styles.topPagBarsFoodBlockOne, { backgroundColor: hungerLevel >= 1 ? "orange" : "white"}]}/>
+            <View style={[styles.topPagBarsFoodBlockTwo,{ backgroundColor: hungerLevel >= 2 ? "orange" : "white"}]}/>
+            <View style={[styles.topPagBarsFoodBlockThree,{ backgroundColor: hungerLevel >= 3 ? "orange" : "white"}]}/>
+            <View style={[styles.topPagBarsFoodBlockFour,{ backgroundColor: hungerLevel >= 4 ? "orange" : "white"}]}/>
           </View>
           <View style={styles.topPagBarsWater}>
             <View style={[styles.topPagBarsWaterBlockOne, { backgroundColor: waterLevel >= 4 ? "#1CD4E9" : "white" }]} />
@@ -218,6 +224,7 @@ export const Home = () => {
             style={styles.buttonsInteractFive}
           />
         </View>
+        <Button title="Sair" onPress={handleSignout}/>
       </ImageBackground>
     </View>
   );

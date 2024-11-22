@@ -12,7 +12,9 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../routes/navigation/types";
 import { api } from "../../api/api";
 import { useNavigation } from "@react-navigation/native";
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Login">;
+import { MyTabs } from "../../routes/MyTabs/MyTabs";
+import { useAuth } from "../../context";
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -20,8 +22,9 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [sucessMessage, setSucessMessage] = useState<string>("");
   const navigation = useNavigation<HomeScreenNavigationProp>()
+  const { handleLogin } = useAuth();
   
-  const handleLogin = async (e: GestureResponderEvent) => {
+  const handleLoginUser = async (e: GestureResponderEvent) => {
     e.preventDefault();
     try {
       const response = await api.get('/Users',{
@@ -34,6 +37,7 @@ const Login = () => {
         const user = response.data[0];
         if (user.email===email&& user.senha===password){
           setSucessMessage('Usuário logado com sucesso');
+          handleLogin({ name: user.name, email: user.email, password });
           console.log('Usuário logado com sucesso')
           setTimeout(()=>{
             navigation.navigate('MyTabs')
@@ -48,12 +52,16 @@ const Login = () => {
       setErrorMessage('Erro ao logar');
     }
 
-    
   }catch(error){
     console.error('Erro ao fazer o login', error);
     setSucessMessage('Erro ao fazer o login');
   }
   }
+
+  const navigationCadastro=()=> {
+    navigation.navigate('Cadastro')
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground source={logo} style={styles.logo} resizeMode="cover">
@@ -90,13 +98,18 @@ const Login = () => {
           />
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <TouchableOpacity style={styles.button} onPress={handleLoginUser}>
           <Text style={styles.buttonText}>Entrar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={navigationCadastro}>
+          <Text style={styles.buttonText}>Cadastro</Text>
         </TouchableOpacity>
       </View>
       </ImageBackground>
     </View>
   );
 };
+
+
 
 export default Login;

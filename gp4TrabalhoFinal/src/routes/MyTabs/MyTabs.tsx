@@ -9,6 +9,8 @@ import { Image } from 'react-native';
 import { styles } from './styles'
 import homeIconTabs from '../../../assets/casa.png'
 import tarefasIconTabs from '../../../assets/iconTarefasTab.png'
+import Cadastro from '../../screens/Cadastro';
+import Login  from '../../screens/Login';
 
 const Tab = createBottomTabNavigator();
 
@@ -36,6 +38,33 @@ export function MyTabs() {
       name="Home" 
       component={Home} 
       />
+      {/* <Tab.Screen
+      options={{
+        tabBarIcon: () => {
+          return <Image 
+          source={homeIconTabs}
+          resizeMode='contain'
+          style={styles.iconsTabs}
+          />
+        }
+      }}  
+      name="Login" 
+      component={Login} 
+      />
+       <Tab.Screen
+      options={{
+        tabBarIcon: () => {
+          return <Image 
+          source={homeIconTabs}
+          resizeMode='contain'
+          style={styles.iconsTabs}
+          />
+        }
+      }}  
+      name="Cadastro" 
+      component={Cadastro} 
+      /> */}
+      
       <Tab.Screen 
       options={{
         tabBarIcon: () => {
