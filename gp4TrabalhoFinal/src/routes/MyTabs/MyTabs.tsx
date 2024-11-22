@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 
 export function MyTabs() {
   return (
-    <Tab.Navigator initialRouteName='Login' 
+    <Tab.Navigator initialRouteName='Home' 
     screenOptions={{ 
       headerShown: false, 
       tabBarStyle: { 
@@ -38,7 +38,7 @@ export function MyTabs() {
       name="Home" 
       component={Home} 
       />
-      <Tab.Screen
+      {/* <Tab.Screen
       options={{
         tabBarIcon: () => {
           return <Image 
@@ -63,7 +63,7 @@ export function MyTabs() {
       }}  
       name="Cadastro" 
       component={Cadastro} 
-      />
+      /> */}
       
       <Tab.Screen 
       options={{

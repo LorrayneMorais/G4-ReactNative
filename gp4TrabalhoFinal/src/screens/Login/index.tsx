@@ -12,6 +12,8 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../routes/navigation/types";
 import { api } from "../../api/api";
 import { useNavigation } from "@react-navigation/native";
+import { MyTabs } from "../../routes/MyTabs/MyTabs";
+import { useAuth } from "../../context";
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
 
 const Login = () => {
@@ -20,9 +22,9 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [sucessMessage, setSucessMessage] = useState<string>("");
   const navigation = useNavigation<HomeScreenNavigationProp>()
+  const { handleLogin } = useAuth();
   
-  
-  const handleLogin = async (e: GestureResponderEvent) => {
+  const handleLoginUser = async (e: GestureResponderEvent) => {
     e.preventDefault();
     try {
       const response = await api.get('/Users',{
@@ -35,6 +37,7 @@ const Login = () => {
         const user = response.data[0];
         if (user.email===email&& user.senha===password){
           setSucessMessage('Usuário logado com sucesso');
+          handleLogin({ name: user.name, email: user.email, password });
           console.log('Usuário logado com sucesso')
           setTimeout(()=>{
             navigation.navigate('MyTabs')
@@ -95,7 +98,7 @@ const Login = () => {
           />
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <TouchableOpacity style={styles.button} onPress={handleLoginUser}>
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={navigationCadastro}>

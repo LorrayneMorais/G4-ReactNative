@@ -7,9 +7,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type AuthContextProps = {
     user: UserProps | null;
-    handleLogin: Function;
-    handleLogout: Function
-    // handleLogin: (data: { name: string; email: string; password: string }) => void;
+    // handleLogin: Function;
+    // handleLogout: Function
+    handleLogout: () => void;
+    handleLogin: (data: { name: string; email: string; password: string }) => void;
     isAuthenticated: boolean;
 };
 
