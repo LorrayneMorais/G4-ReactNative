@@ -6,6 +6,7 @@ import virtualPet from '../../../assets/virtualPet.png'
 import { styles } from "./styles"; 
 import iconvisible from "../../../assets/eye.png"; 
 import iconinvisible from "../../../assets/hidden.png"; 
+import { useAuth } from "../../context";
 
 
 const Cadastro = () => {
@@ -15,18 +16,22 @@ const Cadastro = () => {
     const [confirmPassword,setConfirmPassword] = useState<string>("");
     const [errorMessage, setErrorMessage] = useState<string>("");
     const [showPassword, setShowPassword] = useState(false);
+    const { handleLogin } = useAuth();
   
     const handleCadastro = () => {
       if (!name || !email || !password|| !confirmPassword) {
         setErrorMessage("Por favor, preencha todos os campos.");
         return;
-      }
-     
-      if (password   !== confirmPassword )  {
-        setErrorMessage("As senhas nao coincidem.");
+      } 
+      if (password !== confirmPassword){
+        setErrorMessage("As senhas não coincidem.");
         return;
-      }
-      Alert.alert("Cadastro Realizado.");
+      } 
+      handleLogin({
+        name,
+        email,
+        password
+      });
     };
   
 return (
