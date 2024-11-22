@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 
+ *   All rights reserved.
+ */
 import { NavigationContainer } from "@react-navigation/native"
 import { MyTabs } from "./MyTabs/MyTabs"
 import { Home } from "../screens/home"
@@ -16,8 +20,9 @@ export const Routes = () => {
 
     return (
         <NavigationContainer>
+            <Stack.Navigator initialRouteName={isAuthenticated?"Home": "Cadastro"} screenOptions={{ headerShown: false }}>
             {isAuthenticated ? (
-                <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+                <>
                     <Stack.Screen
                         name="MyTabs"
                         component={MyTabs}
@@ -34,6 +39,11 @@ export const Routes = () => {
                         name="ListaCompromisso"
                         component={Compromisso}
                     />
+
+                    </>
+            ) : (
+                <>
+
                     <Stack.Screen
                         name="Login"
                         component={Login}
@@ -42,10 +52,9 @@ export const Routes = () => {
                         name="Cadastro"
                         component={Cadastro}
                     />
-                </Stack.Navigator>
-            ) : (
-                <Cadastro />
+                </>
             )}
+            </Stack.Navigator>
         </NavigationContainer>
     );
 };
