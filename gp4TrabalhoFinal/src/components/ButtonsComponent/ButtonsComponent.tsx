@@ -19,22 +19,29 @@ const imageMap = {
 };
 
 const styleMap = {
+  calendar: styles.buttonsInteractOne,
+  heart: styles.buttonsInteractTwo,
+  tasks: styles.buttonsInteractThree,
+  moon: styles.buttonsInteractFour,
+  exercise: styles.buttonsInteractFour,
+};
+
+const imageStyleMap = {
   calendar: styles.buttonsBordersCalendar,
   heart: styles.buttonsBordersHeart,
   tasks: styles.buttonsBordersTarefas,
   moon: styles.buttonsBordersMoon,
   exercise: styles.buttonsBordersExercicio,
-};
+}
 
 export const ButtonComponent: React.FC<ButtonProps> = ({ onPress, type, style, imageStyle }) => {
   const imageSource = imageMap[type];
   const buttonStyle = styleMap[type]; 
+  const imageStyles = imageStyleMap[type];
 
   return (
-    <ImageBackground source={images.backgroundPet} style={styles.containerPetMain}>
       <TouchableOpacity style={[buttonStyle, style]} onPress={onPress}>
-        <Image source={imageSource} style={imageStyle} />
+        <Image source={imageSource} style={imageStyles} resizeMode="contain"/>
       </TouchableOpacity>
-    </ImageBackground>
   );
 };
