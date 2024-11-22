@@ -19,7 +19,6 @@ export const styles = StyleSheet.create({
         height: 160,
         resizeMode: "cover"
     },
-
     buttonsInteractOne: {
         // borderWidth: 1,
         width: '30%',
@@ -72,8 +71,7 @@ export const styles = StyleSheet.create({
         shadowColor: '#80EDD4',
         shadowOpacity: 1,
         shadowRadius: 10,
-      },
-     
+      },   
       buttonsBordersHeart: {
         width: 210,
         height: 210,
