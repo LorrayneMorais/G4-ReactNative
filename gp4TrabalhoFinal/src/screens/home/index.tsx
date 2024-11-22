@@ -6,6 +6,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../routes/navigation/types";
 import { useNavigation } from "@react-navigation/native";
 import { PetWeatherComponent } from "../../components/PetWeatherComponent/PetWeatherComponent";
+import { ButtonComponent } from "../../components/ButtonsComponent/ButtonsComponent";
 import { useAuth } from "../../context";
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
@@ -62,7 +63,7 @@ export const Home = () => {
     const interval = setInterval(() => {
       setHungerLevel((prev) => {
         const newHungerLevel = Math.max(prev - 1, 0);
-  
+
         if (newHungerLevel === 0) {
           setGifSource(require('../../../assets/gifs/fomeIrritadoBd.gif'));
           setGifStyles(styles.gifMudanca)
@@ -70,14 +71,14 @@ export const Home = () => {
           setGifSource(require('../../../assets/gifs/gifNormalbdNew.gif'));
           setGifStyles(styles.gif)
         }
-  
+
         return newHungerLevel;
       });
     }, 5000);
-  
+
     return () => clearInterval(interval);
   }, []);
-  
+
 
   useEffect(() => {
     const intervalWater = setInterval(() => {
@@ -156,7 +157,7 @@ export const Home = () => {
       <ImageBackground source={images.backgroundImag} style={styles.backgroundImage} resizeMode="cover">
         <ImageBackground source={images.backgroundLogopngwhite} style={styles.topPag}>
           <View style={styles.topPagContent}>
-              <Image source={images.virtualPet} style={styles.topPagContentText}></Image>
+            <Image source={images.virtualPet} style={styles.topPagContentText}></Image>
           </View>
         </ImageBackground>
         <View style={styles.topPagBarsFoodAndWater}>
@@ -167,10 +168,10 @@ export const Home = () => {
             <View style={[styles.topPagBarsFoodBlockFour,{ backgroundColor: hungerLevel >= 4 ? "orange" : "white"}]}/>
           </View>
           <View style={styles.topPagBarsWater}>
-            <View style={[styles.topPagBarsWaterBlockOne, {backgroundColor: waterLevel >= 4 ? "#1CD4E9" : "white"}]}/>
-            <View style={[styles.topPagBarsWaterBlockTwo, {backgroundColor: waterLevel >= 3 ? "#1CD4E9" : "white"}]}/>
-            <View style={[styles.topPagBarsWaterBlockThree, {backgroundColor: waterLevel >= 2 ? "#1CD4E9" : "white"}]}/>
-            <View style={[styles.topPagBarsWaterBlockFour, {backgroundColor: waterLevel >= 1 ? "#1CD4E9" : "white"}]}/>
+            <View style={[styles.topPagBarsWaterBlockOne, { backgroundColor: waterLevel >= 4 ? "#1CD4E9" : "white" }]} />
+            <View style={[styles.topPagBarsWaterBlockTwo, { backgroundColor: waterLevel >= 3 ? "#1CD4E9" : "white" }]} />
+            <View style={[styles.topPagBarsWaterBlockThree, { backgroundColor: waterLevel >= 2 ? "#1CD4E9" : "white" }]} />
+            <View style={[styles.topPagBarsWaterBlockFour, { backgroundColor: waterLevel >= 1 ? "#1CD4E9" : "white" }]} />
           </View>
         </View>
         <View style={styles.date}>
@@ -190,18 +191,38 @@ export const Home = () => {
         </View>
         <View style={styles.iconFoodAndWater}>
           <TouchableOpacity style={styles.iconFood} onPress={increaseHunger}>
-            <Image source={images.buttonFood} style={styles.iconFoodImage}/>
+            <Image source={images.buttonFood} style={styles.iconFoodImage} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.iconWater} onPress={increaseWater}>
-            <Image source={images.buttonWater} style={styles.iconWaterImage}/>
+            <Image source={images.buttonWater} style={styles.iconWaterImage} />
           </TouchableOpacity>
         </View>
         <View style={styles.buttonsInteract}>
-          <TouchableOpacity style={styles.buttonsInteractOne} onPress={navigationCalendar}><Image source={images.calendarioIconCalendar} style={styles.buttonsBordersCalendar}></Image></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractTwo} onPress={handleGifCarinho}><Image source={images.botaoHeartCoracao} style={styles.buttonsBordersHeart}></Image></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractThree} onPress={navigationTarefas}><Image source={images.tarefasIconTar} style={styles.buttonsBordersTarefas}></Image ></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifDormir}><Image source={images.buttonMoonIconLua} style={styles.buttonsBordersMoon}></Image></TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsInteractFour} onPress={handleGifCorrer}><Image source={images.botaoHalter} style={styles.buttonsBordersExercicio}></Image ></TouchableOpacity>
+          <ButtonComponent
+            onPress={navigationCalendar}
+            type="calendar"
+            style={styles.buttonsInteractOne}
+          />
+          <ButtonComponent
+            onPress={handleGifCarinho}
+            type="heart"
+            style={styles.buttonsInteractTwo}         
+          />
+          <ButtonComponent
+            onPress={navigationTarefas}
+            type="tasks"
+            style={styles.buttonsInteractThree}
+          />
+          <ButtonComponent
+            onPress={handleGifDormir}
+            type="moon"
+            style={styles.buttonsInteractFour} 
+          />
+          <ButtonComponent
+            onPress={handleGifCorrer}
+            type="exercise"
+            style={styles.buttonsInteractFour}
+          />
         </View>
         <Button title="Sair" onPress={handleSignout}/>
       </ImageBackground>
