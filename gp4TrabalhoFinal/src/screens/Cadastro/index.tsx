@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 
+ *   All rights reserved.
+ */
 import React, { useState } from "react";
 import {View, Text, TextInput, TouchableOpacity, Alert, ImageBackground, Image} from "react-native";
 import logo from '../../../assets/Trabalho.png'
@@ -7,8 +11,11 @@ import { styles } from "./styles";
 import iconvisible from "../../../assets/eye.png"; 
 import iconinvisible from "../../../assets/hidden.png"; 
 import { useAuth } from "../../context";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../routes/navigation/types";
 
-
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Cadastro">;
 const Cadastro = () => {
     const [ name , setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
@@ -17,6 +24,7 @@ const Cadastro = () => {
     const [errorMessage, setErrorMessage] = useState<string>("");
     const [showPassword, setShowPassword] = useState(false);
     const { handleLogin } = useAuth();
+    const navigation = useNavigation<HomeScreenNavigationProp>()
   
     const handleCadastro = () => {
       if (!name || !email || !password|| !confirmPassword) {
@@ -33,7 +41,9 @@ const Cadastro = () => {
         password
       });
     };
-  
+    const navigationLogin=()=> {
+      navigation.navigate('Login')
+    }
 return (
         
     <View style={styles.container}>
@@ -90,6 +100,9 @@ return (
   
       <TouchableOpacity style={styles.button} onPress={handleCadastro}>
       <Text style={styles.buttonText}>Cadastrar</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={navigationLogin}>
+      <Text style={styles.buttonText}>Já possui conta? Faça login</Text>
       </TouchableOpacity>
       </View>
       </ImageBackground>
