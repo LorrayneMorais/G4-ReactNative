@@ -14,7 +14,7 @@ type AuthContextProps = {
     isAuthenticated: boolean;
 };
 
-type UserProps = {
+export type UserProps = {
     name: string,
     email: string;
     password: string;
@@ -22,11 +22,11 @@ type UserProps = {
 
 const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
 
-export const AuthProvider = ({children}: any) => {
+export const AuthProvider = ({ children }: any) => {
     const [user, setUser] = useState<UserProps | null>(null);
     // const [loading, setLoading] = useState<boolean>(true);
 
-    useEffect(()=>{
+    useEffect(() => {
         loadingUser();
     }, [])
 
@@ -40,8 +40,8 @@ export const AuthProvider = ({children}: any) => {
         }
     }
 
-    const handleLogin = ({name, email, password}: { name: string; email: string; password: string }) => {
-        console.log( 'CONTEXT', name, email, password);
+    const handleLogin = ({ name, email, password }: { name: string; email: string; password: string }) => {
+        console.log('CONTEXT', name, email, password);
         setUser({
             name,
             email,
@@ -49,7 +49,7 @@ export const AuthProvider = ({children}: any) => {
         });
         AsyncStorage.setItem(
             '@loginApp:user',
-            JSON.stringify({name,email,password,}));
+            JSON.stringify({ name, email, password, }));
     }
 
     const handleLogout = async () => {
