@@ -12,9 +12,10 @@ import tarefasIconTabs from '../../../assets/iconTarefasTab.png'
 import Cadastro from '../../screens/Cadastro';
 import Login  from '../../screens/Login';
 
-const Tab = createBottomTabNavigator();
 
 export function MyTabs() {
+  const Tab = createBottomTabNavigator();
+  
   return (
     <Tab.Navigator initialRouteName='Home' 
     screenOptions={{ 

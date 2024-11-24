@@ -74,7 +74,7 @@ export const Home = () => {
 
         return newHungerLevel;
       });
-    }, 5000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, []);
@@ -83,7 +83,7 @@ export const Home = () => {
   useEffect(() => {
     const intervalWater = setInterval(() => {
       setWaterLevel((prev) => Math.max(prev - 1, 0));
-    }, 10000);
+    }, 20000);
 
     return () => clearInterval(intervalWater);
   }, []);
