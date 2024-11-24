@@ -218,13 +218,15 @@ export const Home = () => {
             type="moon"
             style={styles.buttonsInteractFour} 
           />
-          <ButtonComponent
+          {/* <ButtonComponent
             onPress={navigationCalendar}
             type="calendar"
             style={styles.buttonsInteractOne}
-          />
+          /> */}
         </View>
-        <Button title="Sair" onPress={handleSignout}/>
+        <View style={styles.buttonStyleHomePage}>
+          <Button title="Sair" onPress={handleSignout}/>
+        </View>
       </ImageBackground>
     </View>
   );

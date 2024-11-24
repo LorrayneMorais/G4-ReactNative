@@ -185,7 +185,7 @@ export const styles = StyleSheet.create({
     flexWrap: 'wrap',
     // justifyContent: 'space-around',
     width: '100%',
-    marginTop: 50,
+    marginTop: 70,
     justifyContent: 'center',
     gap: 10,
     // borderWidth: 1,
@@ -276,5 +276,10 @@ export const styles = StyleSheet.create({
   buttonsInteractIconsSecond: {
     width: 60,
     height: 60
-  }
+  },
+  buttonStyleHomePage: {
+    position: 'absolute',
+    width: '100%',
+    bottom: -27
+  },
 });
