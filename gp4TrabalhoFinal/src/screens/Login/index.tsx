@@ -95,9 +95,14 @@ const Login = () => {
           <TouchableOpacity style={styles.button} onPress={handleLoginUser}>
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={navigationCadastro}>
-            <Text style={styles.buttonText}>Cadastro</Text>
-          </TouchableOpacity>
+          <View style={styles.viewTextCadastro} >
+            <Text style={styles.viewText}>Você ainda não tem uma conta?</Text>
+            <TouchableOpacity onPress={navigationCadastro}>
+              <Text style={styles.viewButton}>
+                Cadastre-se
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ImageBackground>
     </View>
