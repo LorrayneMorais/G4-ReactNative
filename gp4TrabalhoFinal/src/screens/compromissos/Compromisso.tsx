@@ -1,27 +1,30 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, Image, FlatList, ImageBackground } from 'react-native';
 import backgroundImag from "../../../assets/background.png";
+import images from '../../components/Images';
 import { Calendar, DateData } from 'react-native-calendars';
 import { styles } from './stylesCompromisso';
 
 type CompromissoType = {
     id: number;
     nome: string;
-    dia: string; // Formato: YYYY-MM-DD
-    horario: string; // Formato: HH:mm
+    dia: string;
+    horario: string;
 };
 
 const Compromisso = () => {
     const [compromissos, setCompromissos] = useState<CompromissoType[]>([]);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [novoCompromisso, setNovoCompromisso] = useState({ nome: '', dia: '', horario: '' });
-    const [dataSelecionada, setDataSelecionada] = useState<string>(''); // Tipando corretamente como string
+    const [dataSelecionada, setDataSelecionada] = useState<string>('');
 
     const adicionarCompromisso = () => {
         if (novoCompromisso.nome && novoCompromisso.dia && novoCompromisso.horario) {
             setCompromissos([...compromissos, { id: Date.now(), ...novoCompromisso }]);
             setNovoCompromisso({ nome: '', dia: '', horario: '' });
-            setIsModalVisible(false); // Fecha o modal após adicionar o compromisso
+            setIsModalVisible(false);
+        } else {
+            alert("Por favor, preencha todos os campos.");
         }
     };
 
@@ -35,11 +38,6 @@ const Compromisso = () => {
             <Button title="Excluir" onPress={() => excluirCompromisso(item.id)} />
         </View>
     );
-
-    const markedDates = compromissos.reduce((acc, compromisso) => {
-        acc[compromisso.dia] = { selected: true, marked: true, selectedColor: 'pink' };
-        return acc;
-    }, {} as Record<string, any>);
 
     const onDayPress = (day: DateData) => {
         setDataSelecionada(day.dateString);
@@ -55,12 +53,17 @@ const Compromisso = () => {
                         <Image source={require('../../../assets/virtualPet.png')} style={styles.topPagContentText} />
                     </View>
                 </View>
-
-                <Image source={require('../../../assets/gifs/feliz.gif')} style={styles.gif} resizeMode="contain" />
-
+                <View style={styles.containerGifMain}>
+                    <ImageBackground source={images.backgroundPet} style={styles.containerGif}>
+                        <Image source={require('../../../assets/gifs/gifNormalbdNew.gif')} style={styles.gif} resizeMode="contain" />
+                    </ImageBackground>
+                </View>
                 <Calendar
                     onDayPress={onDayPress}
-                    markedDates={markedDates}
+                    markedDates={compromissos.reduce((acc, compromisso) => {
+                        acc[compromisso.dia] = { selected: true, marked: true, selectedColor: 'pink' };
+                        return acc;
+                    }, {} as Record<string, any>)}
                     style={styles.calendar}
                     theme={{
                         selectedDayBackgroundColor: 'pink',
@@ -69,7 +72,7 @@ const Compromisso = () => {
                 />
 
                 <View style={styles.compromissosContainer}>
-                    <Text style={styles.title}>Compromissos para o dia {dataSelecionada}</Text>
+                    <Text style={styles.title}>Compromissos para o dia {dataSelecionada || "nenhum dia selecionado"}</Text>
                     <FlatList
                         data={compromissosDoDia}
                         renderItem={renderItem}
@@ -92,13 +95,13 @@ const Compromisso = () => {
                         />
                         <TextInput
                             style={styles.input}
-                            placeholder="Dia (ex: 2024-11-17)"
+                            placeholder="Dia (qualquer formato)"
                             value={novoCompromisso.dia}
                             onChangeText={(text) => setNovoCompromisso({ ...novoCompromisso, dia: text })}
                         />
                         <TextInput
                             style={styles.input}
-                            placeholder="Horário (ex: 14:00)"
+                            placeholder="Horário (qualquer formato)"
                             value={novoCompromisso.horario}
                             onChangeText={(text) => setNovoCompromisso({ ...novoCompromisso, horario: text })}
                         />

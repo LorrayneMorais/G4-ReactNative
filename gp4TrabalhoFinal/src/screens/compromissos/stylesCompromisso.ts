@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 20,
         backgroundColor: 'transparent',
     },
 
@@ -26,7 +25,6 @@ export const styles = StyleSheet.create({
         borderBottomWidth: 6,
         borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15,
-        paddingTop: 10,
         paddingBottom: 16,
         paddingHorizontal: 35,
     },
@@ -34,19 +32,39 @@ export const styles = StyleSheet.create({
     topPagContentText: {
         width: 230,
         height: 65,
-        shadowColor: '#fff',  // Cor da sombra
-        shadowOffset: { width: 0, height: 3 },  // Distância da sombra
-        shadowOpacity: 1,  // Opacidade da sombra
-        shadowRadius: 5,  // Desfoque da sombra
+        shadowColor: '#fff', // Cor da sombra
+        shadowOffset: { width: 0, height: 3 }, // Distância da sombra
+        shadowOpacity: 1, // Opacidade da sombra
+        shadowRadius: 5, // Desfoque da sombra
     },
 
     gif: {
-        width: 150,
-        height: 150,
+        width: 250,
+        height: 250,
         alignSelf: 'center',
+        resizeMode: 'contain',
+    },
+    containerGifMain: {
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 20,
     },
 
+    containerGif: {
+        width: 300,
+        height: 300,
+        overflow: 'hidden',
+        borderWidth: 20,
+        borderColor: '#ffc1d8',
+        borderRadius: 300,
+        alignSelf: 'center',
+        justifyContent: 'center',
+    },
     calendar: {
+        alignSelf: 'center', // Centraliza o calendário horizontalmente
+        width: '80%', // Reduz o tamanho geral do calendário
+        height: 'auto',
         marginVertical: 20,
     },
 
@@ -58,6 +76,7 @@ export const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: 'bold',
         marginBottom: 10,
+        textAlign: 'center', // Centraliza o título
     },
 
     noCompromissos: {
@@ -110,5 +129,13 @@ export const styles = StyleSheet.create({
         borderColor: 'gray',
         borderRadius: 5,
         padding: 10,
+    },
+
+    calendarImage: {
+        width: 80, // Ajusta o tamanho das imagens no calendário
+        height: 80,
+        borderRadius: 40, // Torna as imagens redondas
+        marginVertical: 5,
+        alignSelf: 'center',
     },
 });
