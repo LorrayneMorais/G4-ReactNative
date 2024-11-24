@@ -74,7 +74,7 @@ export const Home = () => {
 
         return newHungerLevel;
       });
-    }, 5000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, []);
@@ -83,7 +83,7 @@ export const Home = () => {
   useEffect(() => {
     const intervalWater = setInterval(() => {
       setWaterLevel((prev) => Math.max(prev - 1, 0));
-    }, 10000);
+    }, 20000);
 
     return () => clearInterval(intervalWater);
   }, []);
@@ -199,29 +199,29 @@ export const Home = () => {
         </View>
         <View style={styles.buttonsInteract}>
           <ButtonComponent
-            onPress={navigationCalendar}
-            type="calendar"
-            style={styles.buttonsInteractOne}
+            onPress={handleGifCorrer}
+            type="exercise"
+            style={styles.buttonsInteractFour}
           />
           <ButtonComponent
             onPress={handleGifCarinho}
             type="heart"
             style={styles.buttonsInteractTwo}         
           />
-          <ButtonComponent
+          {/* <ButtonComponent
             onPress={navigationTarefas}
             type="tasks"
             style={styles.buttonsInteractThree}
-          />
+          /> */}
           <ButtonComponent
             onPress={handleGifDormir}
             type="moon"
             style={styles.buttonsInteractFour} 
           />
           <ButtonComponent
-            onPress={handleGifCorrer}
-            type="exercise"
-            style={styles.buttonsInteractFour}
+            onPress={navigationCalendar}
+            type="calendar"
+            style={styles.buttonsInteractOne}
           />
         </View>
         <Button title="Sair" onPress={handleSignout}/>

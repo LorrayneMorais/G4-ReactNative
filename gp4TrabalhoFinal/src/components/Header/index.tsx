@@ -1,14 +1,15 @@
-import { View, Text } from "react-native";
+import { View, Text, ImageBackground, Image } from "react-native";
 import { styles } from "./styles";
+import images from "../Images";
 
 export const Header = () => {
     return (
         <>
-            <View style={styles.topPag}>
-                <Text style={styles.topPagContentText}>
-                    Virtual Pet
-                </Text>
+        <ImageBackground source={images.backgroundLogopngwhite} style={styles.topPag}>
+            <View style={styles.topPagContent}>
+                <Image source={images.virtualPet} style={styles.topPagContentText}></Image>
             </View>
+        </ImageBackground>
             <View style={styles.topPagBarsFoodAndWater}>
                 <View style={styles.topPagBarsFood}>
                     <View style={styles.topPagBarsFoodBlockOne}></View>

@@ -3,26 +3,37 @@ import { StyleSheet } from "react-native"
 export const styles = StyleSheet.create({
     topPag: {
         width: "100%",
-        height: 85,
+        height: 100,
         alignItems: "center",
     },
     topPagContent: {
-        borderColor: "red",
-        borderLeftWidth: 1,
-        borderRightWidth: 1,
-        borderBottomWidth: 1,
-        borderBottomLeftRadius: 5,
-        borderBottomRightRadius: 5,
-        paddingTop: 10,
+        borderColor: "black",
+        // borderWidth: 1,
+        // borderLeftWidth: 6,
+        // borderRightWidth: 6,
+        // borderBottomWidth: 6,
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 15,
+        paddingTop: 1,
         paddingBottom: 16,
         paddingHorizontal: 35,
     },
     topPagContentText: {
-        fontSize: 40,
-        fontWeight: 600,
-        paddingTop: 10
+        width: 230,
+        height: 65,
+    },
+    gifMudanca: {
+        width: 335,
+        height: 335,
+        resizeMode: "contain",
+    },
+    gif: {
+    width: 250,
+    height: 250,
+    resizeMode: "contain",
     },
     topPagBarsFoodAndWater: {
+        marginTop: 10,
         alignItems: "center",
         justifyContent: "space-around",
         flexDirection: "row",
