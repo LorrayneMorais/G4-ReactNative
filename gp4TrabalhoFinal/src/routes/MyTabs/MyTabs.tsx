@@ -9,8 +9,8 @@ import { Image } from 'react-native';
 import { styles } from './styles'
 import homeIconTabs from '../../../assets/casa.png'
 import tarefasIconTabs from '../../../assets/iconTarefasTab.png'
-import Cadastro from '../../screens/Cadastro';
-import Login  from '../../screens/Login';
+import compromissoIconTabs from '../../../assets/iconCalendarioTabs.png';
+import Compromisso from '../../screens/compromissos/Compromisso';
 
 
 export function MyTabs() {
@@ -30,6 +30,20 @@ export function MyTabs() {
       options={{
         tabBarIcon: () => {
           return <Image 
+          source={compromissoIconTabs}
+          resizeMode='contain'
+          style={styles.iconsTabs}
+          />
+        }
+      }}  
+      name="Compromissos" 
+      component={Compromisso} 
+      />
+
+      <Tab.Screen
+      options={{
+        tabBarIcon: () => {
+          return <Image 
           source={homeIconTabs}
           resizeMode='contain'
           style={styles.iconsTabs}
@@ -39,32 +53,6 @@ export function MyTabs() {
       name="Home" 
       component={Home} 
       />
-      {/* <Tab.Screen
-      options={{
-        tabBarIcon: () => {
-          return <Image 
-          source={homeIconTabs}
-          resizeMode='contain'
-          style={styles.iconsTabs}
-          />
-        }
-      }}  
-      name="Login" 
-      component={Login} 
-      />
-       <Tab.Screen
-      options={{
-        tabBarIcon: () => {
-          return <Image 
-          source={homeIconTabs}
-          resizeMode='contain'
-          style={styles.iconsTabs}
-          />
-        }
-      }}  
-      name="Cadastro" 
-      component={Cadastro} 
-      /> */}
       
       <Tab.Screen 
       options={{
