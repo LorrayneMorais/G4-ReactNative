@@ -199,29 +199,29 @@ export const Home = () => {
         </View>
         <View style={styles.buttonsInteract}>
           <ButtonComponent
-            onPress={navigationCalendar}
-            type="calendar"
-            style={styles.buttonsInteractOne}
+            onPress={handleGifCorrer}
+            type="exercise"
+            style={styles.buttonsInteractFour}
           />
           <ButtonComponent
             onPress={handleGifCarinho}
             type="heart"
             style={styles.buttonsInteractTwo}         
           />
-          <ButtonComponent
+          {/* <ButtonComponent
             onPress={navigationTarefas}
             type="tasks"
             style={styles.buttonsInteractThree}
-          />
+          /> */}
           <ButtonComponent
             onPress={handleGifDormir}
             type="moon"
             style={styles.buttonsInteractFour} 
           />
           <ButtonComponent
-            onPress={handleGifCorrer}
-            type="exercise"
-            style={styles.buttonsInteractFour}
+            onPress={navigationCalendar}
+            type="calendar"
+            style={styles.buttonsInteractOne}
           />
         </View>
         <Button title="Sair" onPress={handleSignout}/>
