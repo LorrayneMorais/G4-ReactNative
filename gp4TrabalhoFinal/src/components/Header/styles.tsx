@@ -18,11 +18,11 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 35,
     },
     topPagContentText: {
-        fontSize: 40,
-        fontWeight: 600,
-        paddingTop: 10
+        width: 230,
+        height: 65,
     },
     topPagBarsFoodAndWater: {
+        marginTop: 20,
         alignItems: "center",
         justifyContent: "space-around",
         flexDirection: "row",

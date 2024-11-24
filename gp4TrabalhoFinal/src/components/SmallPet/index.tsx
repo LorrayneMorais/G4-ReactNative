@@ -1,12 +1,12 @@
-import { View, Image } from "react-native"
+import { View, Image, ImageBackground } from "react-native"
 import { styles } from "./styles"
 
 export const SmallPet = () => {
     return (
         <View style={styles.containerPet}>
-            <View style={styles.containerPetMain}>
-                <Image source={require('../../../assets/gifs/normal.gif')} style={styles.gif} resizeMode="contain" />
-            </View>
+            <ImageBackground source={require('../../../assets/backgroundPet.png')} style={styles.containerPetMain}>
+                <Image source={require('../../../assets/gifs/gifNormalbdNew.gif')} style={styles.gif} resizeMode="contain" />
+            </ImageBackground>
         </View>
     )
 }
