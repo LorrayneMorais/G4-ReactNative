@@ -78,6 +78,22 @@ const styles = StyleSheet.create({
       fontSize: 18,
       fontWeight: "bold",
     },
+    viewTextCadastro: {
+      width: '100%',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      marginTop: 20,
+      gap: 10
+    },
+    viewText: {
+      fontSize: 16,
+      fontWeight: 500
+    },
+    viewButton: {
+      fontSize: 16,
+      color: '#1E90FF',
+      fontWeight: 500
+    }
   });
 
 export default styles;

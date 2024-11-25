@@ -81,10 +81,23 @@ virtualPet: {
     position:'absolute',
     top:-35,
     left: 110,
-
-  
-  
-  },   
+  },
+  viewTextLogin: {
+      width: '100%',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      marginTop: 20,
+      gap: 10
+  },
+  viewText: {
+      fontSize: 16,
+      fontWeight: 500
+  },
+  viewButton: {
+    fontSize: 16,
+      color: '#1E90FF',
+      fontWeight: 500
+  }
 
   });
   

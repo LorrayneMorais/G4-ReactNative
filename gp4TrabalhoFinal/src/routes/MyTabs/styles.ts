@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     iconsTabs: {
-        width: 20,
-        height: 20,
-        tintColor: 'white'
+        width: 35,
+        height: 35,
+        tintColor: 'white',
     }
 })
