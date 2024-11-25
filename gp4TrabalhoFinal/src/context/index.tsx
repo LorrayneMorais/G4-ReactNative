@@ -12,6 +12,10 @@ type AuthContextProps = {
     handleLogout: () => void;
     handleLogin: (data: { name: string; email: string; password: string }) => void;
     isAuthenticated: boolean;
+    hungerLevel: number;
+    setHungerLevel: React.Dispatch<React.SetStateAction<number>>
+    waterLevel: number;
+    setWaterLevel: React.Dispatch<React.SetStateAction<number>>
 };
 
 export type UserProps = {
@@ -24,6 +28,8 @@ const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
 
 export const AuthProvider = ({ children }: any) => {
     const [user, setUser] = useState<UserProps | null>(null);
+    const [hungerLevel, setHungerLevel] = useState(4);
+    const [waterLevel, setWaterLevel] = useState(4);
     // const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
@@ -41,7 +47,6 @@ export const AuthProvider = ({ children }: any) => {
     }
 
     const handleLogin = ({ name, email, password }: { name: string; email: string; password: string }) => {
-        console.log('CONTEXT', name, email, password);
         setUser({
             name,
             email,
@@ -62,7 +67,11 @@ export const AuthProvider = ({ children }: any) => {
             handleLogin,
             user,
             isAuthenticated: !!user,
-            handleLogout
+            handleLogout,
+            hungerLevel,
+            setHungerLevel,
+            waterLevel,
+            setWaterLevel
         }}>
             {children}
         </AuthContext.Provider>
