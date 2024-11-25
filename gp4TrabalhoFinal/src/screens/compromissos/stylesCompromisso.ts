@@ -37,6 +37,22 @@ export const styles = StyleSheet.create({
         shadowOpacity: 1, // Opacidade da sombra
         shadowRadius: 5, // Desfoque da sombra
     },
+    homeButton: {
+        position: 'absolute',
+        top: 10,
+        left: 10,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 10,
+    },
+    homeButtonText: {
+        color: 'white',
+        fontSize: 20,
+    },
 
     gif: {
         width: 250,
