@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import { PetWeatherComponent } from "../../components/PetWeatherComponent/PetWeatherComponent";
 import { ButtonComponent } from "../../components/ButtonsComponent/ButtonsComponent";
 import { useAuth } from "../../context";
+import { Header } from "../../components/Header";
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
 
@@ -17,8 +18,6 @@ type WeatherData = {
 
 export const Home = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
-  const [hungerLevel, setHungerLevel] = useState(4);
-  const [waterLevel, setWaterLevel] = useState(4);
   const [gifSource, setGifSource] = useState(require('../../../assets/gifs/gifNormalbdNew.gif'));
   const [gifStyles, setGifStyles] = useState(styles.gif);
   const navigation = useNavigation<HomeScreenNavigationProp>();
@@ -29,7 +28,7 @@ export const Home = () => {
   const [isRainy, setIsRainy] = useState(false);
   const [isCloud, setIsCloud] = useState(false);
   const [isNub, setIsNub] = useState(false);
-  const { user, handleLogout } = useAuth();
+  const { user, handleLogout, hungerLevel, setHungerLevel, waterLevel, setWaterLevel } = useAuth();
   const today = new Date();
   const day = today.getDate()
   const apiKey = '8274cf4646fe3a0b32b447a00828a40f';
@@ -61,7 +60,7 @@ export const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setHungerLevel((prev) => {
+      setHungerLevel((prev: number) => {
         const newHungerLevel = Math.max(prev - 1, 0);
 
         if (newHungerLevel === 0) {
@@ -155,25 +154,7 @@ export const Home = () => {
   return (
     <View style={styles.container}>
       <ImageBackground source={images.backgroundImag} style={styles.backgroundImage} resizeMode="cover">
-        <ImageBackground source={images.backgroundLogopngwhite} style={styles.topPag}>
-          <View style={styles.topPagContent}>
-            <Image source={images.virtualPet} style={styles.topPagContentText}></Image>
-          </View>
-        </ImageBackground>
-        <View style={styles.topPagBarsFoodAndWater}>
-          <View style={styles.topPagBarsFood}>
-            <View style={[styles.topPagBarsFoodBlockOne, { backgroundColor: hungerLevel >= 1 ? "orange" : "white"}]}/>
-            <View style={[styles.topPagBarsFoodBlockTwo,{ backgroundColor: hungerLevel >= 2 ? "orange" : "white"}]}/>
-            <View style={[styles.topPagBarsFoodBlockThree,{ backgroundColor: hungerLevel >= 3 ? "orange" : "white"}]}/>
-            <View style={[styles.topPagBarsFoodBlockFour,{ backgroundColor: hungerLevel >= 4 ? "orange" : "white"}]}/>
-          </View>
-          <View style={styles.topPagBarsWater}>
-            <View style={[styles.topPagBarsWaterBlockOne, { backgroundColor: waterLevel >= 4 ? "#1CD4E9" : "white" }]} />
-            <View style={[styles.topPagBarsWaterBlockTwo, { backgroundColor: waterLevel >= 3 ? "#1CD4E9" : "white" }]} />
-            <View style={[styles.topPagBarsWaterBlockThree, { backgroundColor: waterLevel >= 2 ? "#1CD4E9" : "white" }]} />
-            <View style={[styles.topPagBarsWaterBlockFour, { backgroundColor: waterLevel >= 1 ? "#1CD4E9" : "white" }]} />
-          </View>
-        </View>
+        <Header />
         <View style={styles.date}>
           <View style={styles.dateContainer}>
             <Text style={styles.dateContainerText}>{day}</Text>
@@ -206,7 +187,7 @@ export const Home = () => {
           <ButtonComponent
             onPress={handleGifCarinho}
             type="heart"
-            style={styles.buttonsInteractTwo}         
+            style={styles.buttonsInteractTwo}
           />
           {/* <ButtonComponent
             onPress={navigationTarefas}
@@ -216,7 +197,7 @@ export const Home = () => {
           <ButtonComponent
             onPress={handleGifDormir}
             type="moon"
-            style={styles.buttonsInteractFour} 
+            style={styles.buttonsInteractFour}
           />
           {/* <ButtonComponent
             onPress={navigationCalendar}
@@ -225,7 +206,7 @@ export const Home = () => {
           /> */}
         </View>
         <View style={styles.buttonStyleHomePage}>
-          <Button title="Sair" onPress={handleSignout}/>
+          <Button title="Sair" onPress={handleSignout} />
         </View>
       </ImageBackground>
     </View>
